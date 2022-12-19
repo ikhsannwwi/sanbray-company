@@ -9,14 +9,13 @@ use App\Models\jenis__produk;
 
 class jenis_produkController extends Controller
 {
-    public function fe_sub_jenis_produk(jenis__produk $jenis__produk)
+    public function fe_sub_jenis_produk($id)
     {
-
-        $sub_jenis_produk = $jenis__produk->nama_produk()->get();
-        // $sub_jenis_produk = jenis__produk::with('nama_produk')->where('slug',$slug)->first();
-        // $nama_produk = $sub_jenis_produk->nama_produk;
-        dd($sub_jenis_produk);
-        //  return $sub_jenis_produk; //view('fe.data.jenis_produk.sub-jenis-produk', compact('sub_jenis_produk','nama_produk'));
+        // $sub_jenis_produk = $jenis__produk;
+        $jenis_produk = jenis__produk::with('nama_produk')->get();
+        // $nama_produk = $jenis_produk;
+        dd($jenis_produk);
+        //  return view('fe.data.jenis_produk.sub-jenis-produk', compact('nama_produk'));
     }
 
     public function fe_add_jenis_produk()

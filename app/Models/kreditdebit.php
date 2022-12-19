@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Spatie\Activitylog\Traits\LogsActivity;
+
+
 class kreditdebit extends Model
 {
-    use HasFactory;
+    use HasFactory,LogsActivity;
 
     protected $guarded = ['id'];
 

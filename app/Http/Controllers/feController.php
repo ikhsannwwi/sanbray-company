@@ -44,7 +44,7 @@ class feController extends Controller
 
     public function jenis_produk()
     {
-        $jenis_produk  = jenis__produk::all();
+        $jenis_produk  = jenis__produk::with('nama_produk')->get();
         // $nama_produk = nama__produk::find($id);
 
         return view('fe.data.jenis-produk', compact('jenis_produk'));

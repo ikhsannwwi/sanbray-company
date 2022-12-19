@@ -70,16 +70,22 @@
         <div class="col-lg-6">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">1</h5>
+              <h5 class="card-title">{{$row->jenis_produk}}</h5>
 
               <!-- List group With badges -->
               <ul class="list-group">
-                @foreach ($row->nama_produk as $row)
+                
+                @forelse ($row->nama_produk as $row)
+                
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   {{$row->nama_produk}}
-                  <span class="badge bg-primary rounded-pill">14</span>
+                  {{-- <span class="badge bg-primary rounded-pill">14</span> --}}
                 </li>
-                @endforeach
+                @empty
+                    null
+                
+                
+                @endforelse
                 
               </ul><!-- End List With badges -->
 
