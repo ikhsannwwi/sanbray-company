@@ -32,6 +32,18 @@ Route::get('/', [feController::class, 'index'])->name('index');
 Route::get('/produk', [feController::class, 'produk'])->name('produk');
 
 
+
+
+Route::get('/produk/add-pendistribusian', [pendistribusianController::class, 'fe_add_pendistribusian'])->name('add_pendistribusian');
+Route::post('/produk/insert-pendistribusian', [pendistribusianController::class, 'fe_insert_pendistribusian']);
+Route::get('/produk/edit-pendistribusian/{id}', [pendistribusianController::class, 'fe_edit_pendistribusian'])->name('edit_pendistribusian');
+Route::post('/produk/update-pendistribusian/{id}', [pendistribusianController::class, 'fe_update_pendistribusian']);
+Route::get('/produk/delete-pendistribusian/{id}', [pendistribusianController::class, 'fe_delete_pendistribusian']);
+
+
+
+
+
 Route::get('/produk/add-nama-produk', [nama_produkController::class, 'fe_add_nama_produk'])->name('add_nama_produk');
 Route::post('/produk/insert-nama-produk', [nama_produkController::class, 'fe_insert_nama_produk']);
 Route::get('/produk/edit-nama-produk/{id}', [nama_produkController::class, 'fe_edit_nama_produk'])->name('edit_nama_produk');

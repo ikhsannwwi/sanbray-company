@@ -92,7 +92,7 @@
                               <th scope="col">Tempat</th>
                               <th scope="col">Harga Jual</th>
                               <th scope="col">
-                                <a href="/produk/add-harga-jual" type="button" class="btn ">
+                                <a href="/produk/add-pendistribusian" type="button" class="btn ">
                                   <i class="bx bxs-duplicate bx-sm"></i>
                                 </a>
                               </th>
@@ -105,11 +105,12 @@
                             @foreach ($pendistribusian as $row)
                             <tr>
                               <th scope="row"><a href="/produk/edit-pendistribusian/{{$row->id}}">{{$no++}}</th>
-                              <td>{{$row->id_barang}}</td>
+                              <td>{{$row->nama_produk->nama_produk}}</td>
                               <td>{{$row->tanggal}}</td>
                               <td>{{$row->jumlah_barang}}</td>
-                              <td>{{$row->id_tempat_pendistribusian}}</td>
-                              <td>{{$row->id_harga_jual}}</td>
+                              <td>{{$row->tempat_distribusi->tempat_distribusi}}</td>
+                              <td>Rp.{{$row->harga_jual->harga_jual}}</td>
+                              <td></td>
                             </tr>
                             @endforeach
                             

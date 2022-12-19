@@ -32,47 +32,41 @@
                       <h5 class="card-title">Form Pendistribusian</h5>
         
                       <!-- Multi Columns Form -->
-                      <form class="row g-3">
+                      <form action="/produk/insert-pendistribusian" method="POST" class="row g-3">
+                        @csrf
                         <div class="col-md-12 ">
-                          <label for="inputHarga-jual1" class="form-label">Nama Barang</label>
-                          <select class="form-select" aria-label="Default select example">
+                          <label for="inputHarga-jual1" class="form-label">Nama Produk</label>
+                          <select class="form-select" name="id_barang" aria-label="Default select example">
                             <option selected>Open this select menu</option>
-                            <option value="1">Kerupuk Oren</option>
-                            <option value="2">Kerupuk Seblak</option>
-                            <option value="3">Milk Jelly</option>
+                            @foreach ($data_nama_produk as $row)
+                            <option value="{{$row->id}}">{{$row->nama_produk}}</option>
+                            @endforeach
                           </select>
                         </div>
                         <div class="col-md-8">
                           <label for="inputDate1" class="form-label">Tanggal</label>
-                          <input type="date" class="form-control" id="inputDate1">
+                          <input type="date" name="tanggal" class="form-control" id="inputDate1">
                         </div>
                         <div class="col-md-4">
                             <label for="inputHarga-jual1" class="form-label">Tempat Distribusi</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" name="id_tempat_distribusi" aria-label="Default select example">
                               <option selected>Open this select menu</option>
-                              <option value="Raflesiamart">Kantin Raflesia mart - SMKN 1 GARUT</option>
+                              @foreach ($data_tempat_distribusi as $row)
+                              <option value="{{$row->id}}">{{$row->tempat_distribusi}}</option>
+                              @endforeach
                             </select>
                           </div>
                         <div class="col-md-6">
                           <label for="inputNumber1" class="form-label">Jumlah Barang</label>
-                          <input type="number" class="form-control" id="inputNumber1">
+                          <input type="number" name="jumlah_barang" class="form-control" id="inputNumber1">
                         </div>
                         <div class="col-md-6">
                           <label for="inputHarga-jual1" class="form-label">Harga Jual</label>
-                          <select class="form-select" aria-label="Default select example">
+                          <select class="form-select" name="id_harga_jual" aria-label="Default select example">
                             <option selected>Open this select menu</option>
-                            <option value="500">Rp.500 ( Lima Ratus Rupiah )</option>
-                            <option value="1000">Rp.1000 ( Seribu Rupiah )</option>
-                            <option value="1500">Rp.1500 ( Seribu Lima Ratus Rupiah )</option>
-                            <option value="2000">Rp.2000 ( Dua Ribu Rupiah )</option>
-                            <option value="2500">Rp.2500 ( Dua Ribu Lima Ratus Rupiah )</option>
-                            <option value="3000">Rp.3000 ( Tiga Ribu Rupiah )</option>
-                            <option value="3500">Rp.3500 ( Tiga Lima Ratus Rupiah )</option>
-                            <option value="4000">Rp.4000 ( Empat RIbu Rupiah )</option>
-                            <option value="4500">Rp.4500 ( Empat Ribu Lima Ratus Rupiah )</option>
-                            <option value="5000">Rp.5000 ( Lima Ribu Rupiah )</option>
-                            <option value="5500">Rp.5500 ( Lima Ribu Lima Ratus Rupiah )</option>
-                            <option value="6000">Rp.6000 ( Enam Ribu Rupiah )</option>
+                            @foreach ($data_harga_jual as $row)
+                            <option value="{{$row->id}}">Rp.{{$row->harga_jual}} ( {{$row->rp}} )</option>
+                            @endforeach
                           </select>
                         </div>
                         

@@ -28,18 +28,19 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-body"><div class="row">
-                      <div class="col-lg-10">
-                        <h5 class="card-title">Form Nama Produk</h5>
-                      </div>
-                      <div class="col-lg-2 ">
-                        <a href="/produk/add-nama-produk" type="button" class="btn  mt-lg-3">
-                          <i class="bx bxs-duplicate bx-sm"></i>
-                        </a>
-                        <a href="#" data-id="{{$data->id}}" data-nama="{{$data->nama_produk}}"  type="button" class="btn  mt-lg-3 delete">
-                          <i class="bx bxs-trash-alt bx-sm"></i>
-                        </a>
-                      </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-lg-10">
+                          <h5 class="card-title">Form Nama Produk</h5>
+                        </div>
+                        <div class="col-lg-2 ">
+                          <a href="/produk/add-nama-produk" type="button" class="btn  mt-lg-3">
+                            <i class="bx bxs-duplicate bx-sm"></i>
+                          </a>
+                          <a href="#" data-id="{{$data->id}}" data-nama="{{$data->nama_produk}}"  type="button" class="btn  mt-lg-3 delete">
+                            <i class="bx bxs-trash-alt bx-sm"></i>
+                          </a>
+                        </div>
                       
                     </div>
         
