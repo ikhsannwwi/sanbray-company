@@ -127,25 +127,27 @@
                               <th scope="col">Tanggal</th>
                               <th scope="col">Pemasukan</th>
                               <th scope="col">Pengeluaran</th>
-                              <th scope="col">Barang</th>
+                              <th scope="col">Produk</th>
                               <th scope="col">Deskripsi</th>
                               <th scope="col">
-                                <a href="/produk/add-harga-jual" type="button" class="btn ">
+                                <a href="/produk/add-pemasukan-pengeluaran" type="button" class="btn ">
                                   <i class="bx bxs-duplicate bx-sm"></i>
                                 </a>
                               </th>
                             </tr>
                           </thead>
                           <tbody>
+                            @foreach ($pemasukan_pengeluaran as $row)
                             <tr>
-                              <th scope="row">1</th>
-                              <td>Brandon Jacob</td>
-                              <td>Designer</td>
-                              <td>Designer</td>
-                              <td>28</td>
-                              <td>2016-05-25</td>
+                              <th scope="row"><a href="/produk/edit-pemasukan-pengeluaran/{{$row->id}}">{{$no++}}</th>
+                                <td>{{$row->tanggal}}</td>
+                                <td>Rp.{{$row->pemasukan}}</td>
+                                <td>Rp.{{$row->pengeluaran}}</td>
+                                <td>{{$row->nama_produk->nama_produk}}</td>
+                              <td>{{$row->deskripsi}}</td>
                               <td></td>
                             </tr>
+                            @endforeach
                             
                           </tbody>
                         </table>

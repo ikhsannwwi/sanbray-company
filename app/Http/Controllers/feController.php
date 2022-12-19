@@ -8,6 +8,7 @@ use App\Models\pendistribusian;
 use App\Models\nama__produk;
 use App\Models\jenis__produk;
 use App\Models\harga__jual;
+use App\Models\kreditdebit;
 use App\Models\tempat__distribusi;
 
 class feController extends Controller
@@ -22,8 +23,9 @@ class feController extends Controller
     {
         $pendistribusian = pendistribusian::all();
         $nama_produk = nama__produk::all();
+        $pemasukan_pengeluaran = kreditdebit::all();
 
-        return view('fe.produk', compact('pendistribusian', 'nama_produk'));
+        return view('fe.produk', compact('pendistribusian', 'nama_produk','pemasukan_pengeluaran'));
     }
 
     public function tempat_distribusi()

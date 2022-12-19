@@ -32,37 +32,39 @@
                       <h5 class="card-title">Form Pemasukan | Pengeluaran</h5>
         
                       <!-- Multi Columns Form -->
-                      <form class="row g-3">
+                      <form action="/produk/insert-pemasukan-pengeluaran" method="POST" class="row g-3">
+                        @csrf
                         <div class="col-md-8">
-                            <label for="inputHarga-jual1" class="form-label">Nama Barang</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <label for="inputHarga-jual1" class="form-label">Nama Produk</label>
+                            <select class="form-select" name="id_barang" aria-label="Default select example">
                               <option selected>Open this select menu</option>
-                              <option value="1">Kerupuk Oren</option>
-                              <option value="2">Kerupuk Seblak</option>
+                              @foreach ($data_nama_produk as $row)
+                            <option value="{{$row->id}}">{{$row->nama_produk}}</option>
+                            @endforeach
                             </select>
                           </div>
                         <div class="col-md-4">
                           <label for="inputDate1" class="form-label">Tanggal</label>
-                          <input type="date" class="form-control" id="inputDate1">
+                          <input type="date" name="tanggal" class="form-control" id="inputDate1">
                         </div>
                         <div class="col-md-6">
                           <label for="inputDate1" class="form-label">Pemasukan</label>
                           <div class="input-group mb-3">
                             <span class="input-group-text">Rp</span>
-                            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
+                            <input type="number" name="pemasukan" class="form-control" aria-label="Amount (to the nearest dollar)">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <label for="inputDate1" class="form-label">Pengeluaran</label>
                           <div class="input-group mb-3">
                             <span class="input-group-text">Rp</span>
-                            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
+                            <input type="number" name="pengeluaran" class="form-control" aria-label="Amount (to the nearest dollar)">
                           </div>
                         </div>
                         <div class="row mb-3">
                           <label for="inputPassword" class="col-sm-2 col-form-label">Deskripsi</label>
                           <div class="col-sm-10">
-                            <textarea class="form-control" style="height: 100px"></textarea>
+                            <textarea class="form-control" name="deskripsi" style="height: 100px"></textarea>
                           </div>
                         </div>
                         

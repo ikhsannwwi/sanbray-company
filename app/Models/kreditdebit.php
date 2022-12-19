@@ -10,4 +10,8 @@ class kreditdebit extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function nama_produk(){
+        return $this->belongsTo(nama__produk::class , 'id_barang');
+    }
 }

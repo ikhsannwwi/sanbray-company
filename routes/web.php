@@ -23,9 +23,9 @@ use App\Http\Controllers\edit\harga_jualController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/log', function () {
+    return view('welcome');
+});
 
 Route::get('/', [feController::class, 'index'])->name('index');
 
@@ -41,6 +41,12 @@ Route::post('/produk/update-pendistribusian/{id}', [pendistribusianController::c
 Route::get('/produk/delete-pendistribusian/{id}', [pendistribusianController::class, 'fe_delete_pendistribusian']);
 
 
+
+Route::get('/produk/add-pemasukan-pengeluaran', [pemasukan_pengeluaranController::class, 'fe_add_pemasukan_pengeluaran'])->name('add_pemasukan_pengeluaran');
+Route::post('/produk/insert-pemasukan-pengeluaran', [pemasukan_pengeluaranController::class, 'fe_insert_pemasukan_pengeluaran']);
+Route::get('/produk/edit-pemasukan-pengeluaran/{id}', [pemasukan_pengeluaranController::class, 'fe_edit_pemasukan_pengeluaran'])->name('edit_pemasukan_pengeluaran');
+Route::post('/produk/update-pemasukan-pengeluaran/{id}', [pemasukan_pengeluaranController::class, 'fe_update_pemasukan_pengeluaran']);
+Route::get('/produk/delete-pemasukan-pengeluaran/{id}', [pemasukan_pengeluaranController::class, 'fe_delete_pemasukan_pengeluaran']);
 
 
 
