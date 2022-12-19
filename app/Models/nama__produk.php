@@ -14,6 +14,15 @@ class nama__produk extends Model
 {
     use HasFactory,LogsActivity;
 
+    protected static $logName = 'nama produk';
+
+    protected static $logAttributes = ['jenis_produk', 'slug'];
+
+    public function getDescriptionForEvent(string $eventName): string
+    {
+        return "Kamu melakukan {$eventName} pada data nama produk";
+    }
+
     protected $guarded = ['id'];
 
     public function jenis_produk(){

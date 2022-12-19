@@ -12,6 +12,15 @@ class pendistribusian extends Model
 {
     use HasFactory,LogsActivity;
 
+    protected static $logName = 'pendistribusian';
+
+    protected static $logAttributes = ['jenis_produk', 'slug'];
+
+    public function getDescriptionForEvent(string $eventName): string
+    {
+        return "Kamu melakukan {$eventName} pada data pendistribusian";
+    }
+
     protected $guarded = ['id'];
 
     public function nama_produk(){

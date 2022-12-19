@@ -15,6 +15,15 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable,LogsActivity;
 
+    protected static $logName = 'user';
+
+    protected static $logAttributes = ['jenis_produk', 'slug'];
+
+    public function getDescriptionForEvent(string $eventName): string
+    {
+        return "Kamu melakukan {$eventName} pada data user";
+    }
+
     /**
      * The attributes that are mass assignable.
      *

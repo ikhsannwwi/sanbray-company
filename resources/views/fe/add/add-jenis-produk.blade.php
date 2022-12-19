@@ -34,9 +34,13 @@
                       <!-- Multi Columns Form -->
                       <form action="/produk/insert-jenis-produk" method="POST" class="row g-3">
                         @csrf
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                           <label for="inputName5" class="form-label">Jenis Produk</label>
                           <input type="text" name="jenis_produk" class="form-control" id="inputName5">
+                        </div>
+                        <div class="col-md-6">
+                          <label for="inputName5" class="form-label">Slug</label>
+                          <input type="text" name="slug" class="form-control" id="inputName5">
                         </div>
                         
                         
