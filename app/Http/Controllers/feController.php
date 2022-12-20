@@ -11,11 +11,15 @@ use App\Models\harga__jual;
 use App\Models\kreditdebit;
 use App\Models\tempat__distribusi;
 
+use Spatie\Activitylog\Models\Activity;
+
+
 class feController extends Controller
 {
     public function index()
     {
-        return view('fe.dashboard');
+        $act = Activity::latest()->get();
+        return view('fe.dashboard',compact('act'));
     }
 
 

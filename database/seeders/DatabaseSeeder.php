@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
+use App\Models\nama__produk;
 use App\Models\tempat__distribusi;
 use App\Models\harga__jual;
 use App\Models\jenis__produk;
@@ -28,7 +29,13 @@ class DatabaseSeeder extends Seeder
             'tempat_distribusi' => 'Kantin Raflesia mart - SMK Negeri 1 Garut',
         ]);
         //endseeder tempat disktribusi
-
+        
+        //seeder nama produk
+        nama__produk::create([
+            'nama_produk' => 'Kerupuk Oren',
+            'id_jenis_produk' => '1',
+        ]);
+        //endseeder  nama produk
 
         //seeder jenis produk
         jenis__produk::create([

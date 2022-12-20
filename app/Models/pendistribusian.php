@@ -32,4 +32,7 @@ class pendistribusian extends Model
     public function harga_jual(){
         return $this->belongsTo(harga__jual::class , 'id_harga_jual');
     }
+    public function pemasukan_pengeluaran(){
+        return $this->belongsTo(kreditdebit::class, 'pending');
+    }
 }

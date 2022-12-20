@@ -388,50 +388,51 @@
               <div class="activity">
 
                 <div class="activity-item d-flex">
-                  <div class="activite-label">32 min</div>
+                  <div class="activite-label">{{$act[0]->created_at->diffForHumans()}}</div>
                   <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
                   <div class="activity-content">
-                    Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
+                    {{$act[0]->description}}
                   </div>
                 </div><!-- End activity item-->
+                
 
                 <div class="activity-item d-flex">
-                  <div class="activite-label">56 min</div>
+                  <div class="activite-label">{{$act[1]->created_at->diffForHumans()}}</div>
                   <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
                   <div class="activity-content">
-                    Voluptatem blanditiis blanditiis eveniet
+                    {{$act[1]->description}}
                   </div>
                 </div><!-- End activity item-->
 
                 <div class="activity-item d-flex">
-                  <div class="activite-label">2 hrs</div>
+                  <div class="activite-label">{{$act[2]->created_at->diffForHumans()}}</div>
                   <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
                   <div class="activity-content">
-                    Voluptates corrupti molestias voluptatem
+                    {{$act[2]->description}}
                   </div>
                 </div><!-- End activity item-->
 
                 <div class="activity-item d-flex">
-                  <div class="activite-label">1 day</div>
+                  <div class="activite-label">{{$act[3]->created_at->diffForHumans()}}</div>
                   <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
                   <div class="activity-content">
-                    Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
+                    {{$act[3]->description}}
                   </div>
                 </div><!-- End activity item-->
 
                 <div class="activity-item d-flex">
-                  <div class="activite-label">2 days</div>
+                  <div class="activite-label">{{$act[4]->created_at->diffForHumans()}}</div>
                   <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
                   <div class="activity-content">
-                    Est sit eum reiciendis exercitationem
+                    {{$act[4]->description}}
                   </div>
                 </div><!-- End activity item-->
 
                 <div class="activity-item d-flex">
-                  <div class="activite-label">4 weeks</div>
+                  <div class="activite-label">{{$act[5]->created_at->diffForHumans()}}</div>
                   <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
                   <div class="activity-content">
-                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
+                    {{$act[5]->description}}
                   </div>
                 </div><!-- End activity item-->
 

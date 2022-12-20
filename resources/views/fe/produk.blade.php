@@ -110,7 +110,11 @@
                               <td>{{$row->jumlah_barang}}</td>
                               <td>{{$row->tempat_distribusi->tempat_distribusi}}</td>
                               <td>Rp.{{$row->harga_jual->harga_jual}}</td>
-                              <td></td>
+                              @if ($row->pemasukan_pengeluaran->pending)
+                              <td>sold out</td>
+                              @else
+                              <td><a href="#">stock</a></td>
+                              @endif
                             </tr>
                             @endforeach
                             
