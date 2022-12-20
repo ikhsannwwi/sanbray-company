@@ -302,7 +302,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>Sanbray Comp</span></strong>. All Rights Reserved
+      {{date('Y')}} &copy; Copyright <strong><span>Sanbray Comp</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       Designed by <a href="#">Mochammad Ikhsan Nawawi</a>

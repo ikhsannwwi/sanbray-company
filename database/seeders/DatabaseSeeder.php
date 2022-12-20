@@ -35,6 +35,10 @@ class DatabaseSeeder extends Seeder
             'nama_produk' => 'Kerupuk Oren',
             'id_jenis_produk' => '1',
         ]);
+        nama__produk::create([
+            'nama_produk' => 'Kerupuk Seblak',
+            'id_jenis_produk' => '1',
+        ]);
         //endseeder  nama produk
 
         //seeder jenis produk

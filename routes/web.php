@@ -38,6 +38,8 @@ Route::get('/produk', [feController::class, 'produk'])->name('produk');
 
 
 Route::get('/produk/add-pendistribusian', [pendistribusianController::class, 'fe_add_pendistribusian'])->name('add_pendistribusian');
+Route::post('/produk/add-pendistribusian-pending/{id}', [pendistribusianController::class, 'fe_add_pendistribusian_pending'])->name('add_pendistribusian_pending');
+Route::get('/produk/add-pendistribusian-to-kredit/{id}', [pendistribusianController::class, 'fe_add_pendistribusian_to_kredit'])->name('add_pendistribusian_to_kredit');
 Route::post('/produk/insert-pendistribusian', [pendistribusianController::class, 'fe_insert_pendistribusian']);
 Route::get('/produk/edit-pendistribusian/{id}', [pendistribusianController::class, 'fe_edit_pendistribusian'])->name('edit_pendistribusian');
 Route::post('/produk/update-pendistribusian/{id}', [pendistribusianController::class, 'fe_update_pendistribusian']);
@@ -75,11 +77,7 @@ Route::get('/produk/edit-jenis-produk/{id}', [jenis_produkController::class, 'fe
 Route::post('/produk/update-jenis-produk/{id}', [jenis_produkController::class, 'fe_update_jenis_produk']);
 Route::get('/produk/delete-jenis-produk/{id}', [jenis_produkController::class, 'fe_delete_jenis_produk']);
 
-Route::get('/produk/add-pendistribusian', [pendistribusianController::class, 'fe_add_pendistribusian'])->name('add_pendistribusian');
-Route::get('/produk/edit-pendistribusian', [pendistribusianController::class, 'fe_edit_pendistribusian'])->name('edit_pendistribusian');
 
-Route::get('/produk/add-pemasukan-pengeluaran', [pemasukan_pengeluaranController::class, 'fe_add_pemasukan_pengeluaran'])->name('add_pemasukan_pengeluaran');
-Route::get('/produk/edit-pemasukan-pengeluaran', [pemasukan_pengeluaranController::class, 'fe_edit_pemasukan_pengeluaran'])->name('edit_pemasukan_pengeluaran');
 
 
 

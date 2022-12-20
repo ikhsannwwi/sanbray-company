@@ -110,10 +110,16 @@
                               <td>{{$row->jumlah_barang}}</td>
                               <td>{{$row->tempat_distribusi->tempat_distribusi}}</td>
                               <td>Rp.{{$row->harga_jual->harga_jual}}</td>
-                              @if ($row->pemasukan_pengeluaran->pending)
-                              <td>sold out</td>
+                              @if ($row->pending == 0 or null)
+                              <td>
+                                <form action="/produk/add-pendistribusian-pending/{{$row->id}}" method="post">
+                                  @csrf
+                                  <input class="d-none" name="pending" value="1">
+                                  <button type="submit" class="btn text-primary">Push</button>
+                                </form>
+                              </td>
                               @else
-                              <td><a href="#">stock</a></td>
+                              <td>sold out</td>
                               @endif
                             </tr>
                             @endforeach
@@ -141,6 +147,9 @@
                             </tr>
                           </thead>
                           <tbody>
+                            @php
+                              $no = 1;
+                            @endphp
                             @foreach ($pemasukan_pengeluaran as $row)
                             <tr>
                               <th scope="row"><a href="/produk/edit-pemasukan-pengeluaran/{{$row->id}}">{{$no++}}</th>
@@ -174,6 +183,9 @@
                             </tr>
                           </thead>
                           <tbody>
+                            @php
+                              $no = 1;
+                            @endphp
                             @foreach ($nama_produk as $row)
                             <tr>
                               <th scope="row"><a href="/produk/edit-nama-produk/{{$row->id}}">{{$no++}}</th>
