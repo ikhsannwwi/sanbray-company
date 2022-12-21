@@ -26,22 +26,33 @@ class DatabaseSeeder extends Seeder
 
         //seeder tempat dikstribusi
         tempat__distribusi::create([
+            'tempat_distribusi' => 'Lainnya',
+        ]);
+        tempat__distribusi::create([
             'tempat_distribusi' => 'Kantin Raflesia mart - SMK Negeri 1 Garut',
         ]);
         //endseeder tempat disktribusi
         
         //seeder nama produk
         nama__produk::create([
-            'nama_produk' => 'Kerupuk Oren',
+            'nama_produk' => 'Lainnya',
             'id_jenis_produk' => '1',
         ]);
         nama__produk::create([
+            'nama_produk' => 'Kerupuk Oren',
+            'id_jenis_produk' => '2',
+        ]);
+        nama__produk::create([
             'nama_produk' => 'Kerupuk Seblak',
-            'id_jenis_produk' => '1',
+            'id_jenis_produk' => '2',
         ]);
         //endseeder  nama produk
 
         //seeder jenis produk
+        jenis__produk::create([
+            'jenis_produk' => 'Lainnya',
+            'slug' => 'lainnya'
+        ]);
         jenis__produk::create([
             'jenis_produk' => 'Makanan',
             'slug' => 'makanan'
@@ -54,6 +65,14 @@ class DatabaseSeeder extends Seeder
 
 
         //seeder harga jual
+        harga__jual::create([
+            'harga_jual' => '0',
+            'rp' => 'Lainnya',
+        ]);
+        harga__jual::create([
+            'harga_jual' => '500',
+            'rp' => 'Lima Ratus Rupiah',
+        ]);
         harga__jual::create([
             'harga_jual' => '1000',
             'rp' => 'Seribu Rupiah',

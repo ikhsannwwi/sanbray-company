@@ -106,7 +106,7 @@
                             <tr>
                               <th scope="row"><a href="/produk/edit-pendistribusian/{{$row->id}}">{{$no++}}</th>
                               <td>{{$row->nama_produk->nama_produk}}</td>
-                              <td>{{$row->tanggal}}</td>
+                              <td class="text-center">{{\Carbon\Carbon::parse($row->tanggal)->format('d F Y')}}</td>
                               <td>{{$row->jumlah_barang}}</td>
                               <td>{{$row->tempat_distribusi->tempat_distribusi}}</td>
                               <td>Rp.{{$row->harga_jual->harga_jual}}</td>
@@ -133,7 +133,7 @@
                         <table class="table table-hover ">
                           <thead>
                             <tr>
-                              <th scope="col">#</th>
+                              <th scope="col" class="text-center">#</th>
                               <th scope="col">Tanggal</th>
                               <th scope="col">Pemasukan</th>
                               <th scope="col">Pengeluaran</th>
@@ -152,10 +152,10 @@
                             @endphp
                             @foreach ($pemasukan_pengeluaran as $row)
                             <tr>
-                              <th scope="row"><a href="/produk/edit-pemasukan-pengeluaran/{{$row->id}}">{{$no++}}</th>
-                                <td>{{$row->tanggal}}</td>
-                                <td>Rp.{{$row->pemasukan}}</td>
-                                <td>Rp.{{$row->pengeluaran}}</td>
+                              <th scope="row" class="text-center"><a href="/produk/edit-pemasukan-pengeluaran/{{$row->id}}">{{$no++}}</th>
+                                <td class="text-center">{{\Carbon\Carbon::parse($row->tanggal)->format('d F Y')}}</td>
+                                <td class="text-success">Rp.{{$row->pemasukan}}</td>
+                                <td class="text-danger">Rp.{{$row->pengeluaran}}</td>
                                 <td>{{$row->nama_produk->nama_produk}}</td>
                               <td>{{$row->deskripsi}}</td>
                               <td></td>
@@ -163,6 +163,21 @@
                             @endforeach
                             
                           </tbody>
+                          @php
+                              $total = $pemasukan - $pengeluaran
+                          @endphp
+                          <tfoot>
+                            <th scope="row"  class="text-center">{{date('d F Y')}}</th>
+                            <th scope="row" class="text-center">Jumlah</th>
+                            <td class="text-success">Rp.{{ $pemasukan}}</td>
+                            <td class="text-danger">Rp.{{ $pengeluaran}}</td>
+                            <th scope="row" class="text-center">Sisa Saldo</th>
+                            @if ($total <= 0)
+                            <td class="text-danger">Rp.{{ $total}}</td>
+                            @else
+                            <td class="text-success">Rp.{{ $total}}</td>
+                            @endif
+                          </tfoot>
                         </table>
                         <!-- End Table with hoverable rows -->
                       </div>

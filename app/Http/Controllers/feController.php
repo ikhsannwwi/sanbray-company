@@ -19,17 +19,26 @@ class feController extends Controller
     public function index()
     {
         $act = Activity::latest()->get();
-        return view('fe.dashboard',compact('act'));
+
+        $pemasukan = kreditdebit::all()->sum('pemasukan') ;
+        $pengeluaran = kreditdebit::all()->sum('pengeluaran') ;
+        
+        $sales = pendistribusian::all()->sum('jumlah_barang') ;
+
+        return view('fe.dashboard',compact('act','pemasukan','pengeluaran','sales'));
     }
 
 
     public function produk()
     {
-        $pendistribusian = pendistribusian::all();
+        $pendistribusian = pendistribusian::latest()->get();
         $nama_produk = nama__produk::all();
-        $pemasukan_pengeluaran = kreditdebit::all();
+        $pemasukan_pengeluaran = kreditdebit::latest()->get();
+        $pemasukan = kreditdebit::all()->sum('pemasukan') ;
+        $pengeluaran = kreditdebit::all()->sum('pengeluaran') ;
 
-        return view('fe.produk', compact('pendistribusian', 'nama_produk','pemasukan_pengeluaran'));
+
+        return view('fe.produk', compact('pendistribusian', 'nama_produk','pemasukan_pengeluaran','pemasukan','pengeluaran'));
     }
 
     public function tempat_distribusi()

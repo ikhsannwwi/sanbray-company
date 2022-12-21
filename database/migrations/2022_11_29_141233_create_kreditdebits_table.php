@@ -20,7 +20,6 @@ class CreateKreditdebitsTable extends Migration
             $table->integer('pemasukan');
             $table->integer('pengeluaran');
             $table->text('deskripsi');
-            $table->integer('pending')->nullable();
             $table->timestamps();
         });
     }
