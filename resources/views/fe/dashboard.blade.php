@@ -48,9 +48,23 @@
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-cart"></i>
                     </div>
+                    @php
+                    
+                      # code...
+                      $j =$jumlah_barang[0]->jumlah_barang;
+                      $j2 =$jumlah_barang[1]->jumlah_barang;
+                    
+                      // echo $j;
+                        $persentase = $j / $sales * 100 ;
+                        $persentase2 = $j2 / $sales * 100 ;
+                    @endphp
                     <div class="ps-3">
                       <h6>{{$sales}}</h6>
-                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                      @if ($persentase > $persentase2)
+                      <span class="text-success small pt-1 fw-bold">{{round($persentase)}}%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                      @elseif($persentase < $persentase2)
+                      <span class="text-danger small pt-1 fw-bold">{{round($persentase)}}%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+                      @endif
 
                     </div>
                   </div>
@@ -61,7 +75,7 @@
 
             <!-- Revenue Card -->
             <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
+              <div class="card info-card total-card">
 
                 <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -77,18 +91,166 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Revenue <span>| This Month</span></h5>
+                  <h5 class="card-title">Total Uang <span>| This Month</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-currency-dollar"></i>
                     </div>
                     @php
-                        $profit = $pemasukan - $pengeluaran
+                        $profit = $pemasukan - $pengeluaran;
+                        if ($pemasukan_pengeluaran[0]->pemasukan == 0) {
+                        $profit2 = $pemasukan - $pengeluaran + $pemasukan_pengeluaran[0]->pengeluaran;
+                      } else {
+                        $profit2 = $pemasukan - $pengeluaran - $pemasukan_pengeluaran[0]->pemasukan;
+                      }
+                        
+                        
+                        // echo $profit2;
                     @endphp
                     <div class="ps-3">
-                      <h6>Rp.{{$profit}}</h6>
-                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                      <h6>Rp{{$profit}}</h6>
+                      @if ($profit > $profit2)
+                      <span class="text-success small pt-1 fw-bold"><i class="bx bxs-chevrons-up"></i></span> <span class="text-muted small pt-2 ps-1">increase</span>
+                      @elseif($profit < $profit2)
+                      <span class="text-danger small pt-1 fw-bold"><i class="bx bxs-chevrons-down"></i></span> <span class="text-muted small pt-2 ps-1">decrease</span>
+                      @endif
+                      
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Revenue Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card pemasukan-card">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">Pemasukan <span>| This Month</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-currency-dollar"></i>
+                    </div>
+                    @php
+                        $profit = $pemasukan - $pengeluaran;
+                        if ($pemasukan_pengeluaran[0]->pemasukan == 0) {
+                          $total = $pemasukan_pengeluaran[1]->pemasukan;
+                          $j2 =$pemasukan_pengeluaran[2]->pemasukan;
+                          if ($pemasukan_pengeluaran[2]->pemasukan == 0) {
+                            $j2 =$pemasukan_pengeluaran[3]->pemasukan;
+                          } else {
+                            $j2 =$pemasukan_pengeluaran[2]->pemasukan;
+                          }
+                        } else {
+                          $total = $pemasukan_pengeluaran[0]->pemasukan;
+
+                          if ($pemasukan_pengeluaran[1]->pemasukan == 0) {
+                            $j2 =$pemasukan_pengeluaran[2]->pemasukan;
+                          } else {
+                            $j2 =$pemasukan_pengeluaran[1]->pemasukan;
+                          }
+                        }
+
+                        // echo $total;
+
+                        
+
+                        // echo $j2;
+                        
+                        
+                        // echo $j2;
+                          $persentase = $total / $profit * 100 ;
+                          $persentase2 = $j2 / $profit * 100 ;
+                          // echo $persentase2;
+                    @endphp
+                    <div class="ps-3">
+                      <h6>Rp{{$pemasukan}}</h6>
+                      @if ($persentase > $persentase2)
+                      <span class="text-success small pt-1 fw-bold">{{round($persentase)}}%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                      @elseif($persentase < $persentase2)
+                      <span class="text-danger small pt-1 fw-bold">{{round($persentase)}}%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                      @endif
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Revenue Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card pengeluaran-card">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">Pengeluaran <span>| This Month</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-currency-dollar "></i>
+                    </div>
+                    @php
+                        $profit = $pemasukan - $pengeluaran;
+                        if ($pemasukan_pengeluaran[0]->pengeluaran == 0) {
+                          $total = $pemasukan_pengeluaran[1]->pengeluaran;
+                          $j2 =$pemasukan_pengeluaran[2]->pengeluaran;
+                          if ($pemasukan_pengeluaran[2]->pengeluaran == 0) {
+                            $j2 =$pemasukan_pengeluaran[3]->pengeluaran;
+                            if ($pemasukan_pengeluaran[3]->pengeluaran == 0) {
+                              $j2 =$pemasukan_pengeluaran[4]->pengeluaran;
+                            } else {
+                              $j2 =$pemasukan_pengeluaran[3]->pengeluaran;
+                          }
+                          } else {
+                            $j2 =$pemasukan_pengeluaran[2]->pengeluaran;
+                          }
+                        } else {
+                          $total = $pemasukan_pengeluaran[0]->pengeluaran;
+
+                          if ($pemasukan_pengeluaran[1]->pengeluaran == 0) {
+                            $j2 =$pemasukan_pengeluaran[2]->pengeluaran;
+                          } else {
+                            $j2 =$pemasukan_pengeluaran[1]->pengeluaran;
+                          }
+                        }
+                        
+                        
+                        // echo $j2;
+                          $persentase = $total / $profit * 100 ;
+                          $persentase2 = $j2 / $profit * 100 ;
+                    @endphp
+                    <div class="ps-3">
+                      <h6>Rp{{$pengeluaran}}</h6>
+                      @if ($persentase < $persentase2)
+                      <span class="text-success small pt-1 fw-bold">{{round($persentase)}}%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                      @elseif($persentase > $persentase2)
+                      <span class="text-danger small pt-1 fw-bold">{{round($persentase)}}%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                      @endif
 
                     </div>
                   </div>

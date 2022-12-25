@@ -44,7 +44,8 @@
                       </div>
         
                       <!-- Multi Columns Form -->
-                      <form class="row g-3">
+                      <form action="/produk/update-pemasukan-pengeluaran/{{$data->id}}" method="POST" class="row g-3">
+                        @csrf
                         <div class="col-md-8">
                             <label for="inputHarga-jual1" class="form-label">Nama Barang</label>
                             <select class="form-select" name="id_barang" aria-label="Default select example">

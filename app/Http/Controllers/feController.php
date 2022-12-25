@@ -20,12 +20,14 @@ class feController extends Controller
     {
         $act = Activity::latest()->get();
 
-        $pemasukan = kreditdebit::all()->sum('pemasukan') ;
-        $pengeluaran = kreditdebit::all()->sum('pengeluaran') ;
+        $pemasukan_pengeluaran = kreditdebit::latest()->get();
+        $pemasukan = kreditdebit::whereMonth('tanggal', '=', date('m'))->sum('pemasukan') ;
+        $pengeluaran = kreditdebit::whereMonth('tanggal', '=', date('m'))->sum('pengeluaran') ;
         
-        $sales = pendistribusian::all()->sum('jumlah_barang') ;
+        $jumlah_barang = pendistribusian::latest()->get();
+        $sales = pendistribusian::whereMonth('tanggal', '=', date('m'))->sum('jumlah_barang') ;
 
-        return view('fe.dashboard',compact('act','pemasukan','pengeluaran','sales'));
+        return view('fe.dashboard',compact('act','pemasukan','pengeluaran','sales','pemasukan_pengeluaran','jumlah_barang'));
     }
 
 

@@ -844,14 +844,18 @@ h6 {
   background: #f6f6fe;
 }
 
-.dashboard .revenue-card .card-icon {
+.dashboard .pemasukan-card .card-icon {
   color: #2eca6a;
   background: #e0f8e9;
 }
+.dashboard .pengeluaran-card .card-icon {
+  color: #ca2e2e;
+  background: #f8e0e0;
+}
 
-.dashboard .customers-card .card-icon {
-  color: #ff771d;
-  background: #ffecdf;
+.dashboard .total-card .card-icon {
+  color: #1df0ff;
+  background: #dffff8;
 }
 
 /* Activity */
