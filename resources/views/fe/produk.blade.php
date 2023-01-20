@@ -167,7 +167,7 @@
                               $total = $pemasukan - $pengeluaran
                           @endphp
                           <tfoot>
-                            <th scope="row"  class="text-center">{{date('d F Y')}}</th>
+                            <th scope="row"  class="text-center">{{date('F Y')}}</th>
                             <th scope="row" class="text-center">Jumlah</th>
                             <td class="text-success">Rp.{{ $pemasukan}}</td>
                             <td class="text-danger">Rp.{{ $pengeluaran}}</td>

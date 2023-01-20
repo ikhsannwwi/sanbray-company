@@ -30,6 +30,17 @@
     }
   }
 
+
+  function salesToday() {
+    var salesMonth = document.getElementById("sales-this-month");
+    if (salesMonth.style.display === "none") {
+      salesMonth.style.display = "block";
+    } else {
+      salesMonth.style.display = "none";
+    }
+  }
+
+
   /**
    * Easy on scroll event listener 
    */

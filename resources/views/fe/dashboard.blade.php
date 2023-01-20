@@ -35,9 +35,9 @@
                       <h6>Filter</h6>
                     </li>
 
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                    <li><button class="dropdown-item" onclick="salesToday()">Today</button></li>
+                    <li><button class="dropdown-item" onclick="selasMonth()">This Month</button></li>
+                    <li><button class="dropdown-item" onclick="salesYear()">This Year</button></li>
                   </ul>
                 </div>
 
@@ -55,10 +55,12 @@
                       $j2 =$jumlah_barang[1]->jumlah_barang;
                     
                       // echo $j;
-                        $persentase = $j / $sales * 100 ;
-                        $persentase2 = $j2 / $sales * 100 ;
+                     
+                        $persentase = ($j / $sales) * 100;
+                        $persentase2 = ($j2 / $sales) * 100;
+                      
                     @endphp
-                    <div class="ps-3">
+                    <div class="ps-3 " id="sales-this-month">
                       <h6>{{$sales}}</h6>
                       @if ($persentase > $persentase2)
                       <span class="text-success small pt-1 fw-bold">{{round($persentase)}}%</span> <span class="text-muted small pt-2 ps-1">increase</span>
@@ -98,11 +100,11 @@
                       <i class="bi bi-currency-dollar"></i>
                     </div>
                     @php
-                        $profit = $pemasukan - $pengeluaran;
+                        $profit = $pemasukan_all - $pengeluaran_all;
                         if ($pemasukan_pengeluaran[0]->pemasukan == 0) {
-                        $profit2 = $pemasukan - $pengeluaran + $pemasukan_pengeluaran[0]->pengeluaran;
+                        $profit2 = $pemasukan_all - $pengeluaran_all + $pemasukan_pengeluaran[0]->pengeluaran;
                       } else {
-                        $profit2 = $pemasukan - $pengeluaran - $pemasukan_pengeluaran[0]->pemasukan;
+                        $profit2 = $pemasukan_all - $pengeluaran_all - $pemasukan_pengeluaran[0]->pemasukan;
                       }
                         
                         
@@ -246,9 +248,9 @@
                     @endphp
                     <div class="ps-3">
                       <h6>Rp{{$pengeluaran}}</h6>
-                      @if ($persentase < $persentase2)
+                      @if ($persentase > $persentase2)
                       <span class="text-success small pt-1 fw-bold">{{round($persentase)}}%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-                      @elseif($persentase > $persentase2)
+                      @elseif($persentase < $persentase2)
                       <span class="text-danger small pt-1 fw-bold">{{round($persentase)}}%</span> <span class="text-muted small pt-2 ps-1">increase</span>
                       @endif
 
@@ -317,14 +319,21 @@
                   <h5 class="card-title">Reports <span>/Today</span></h5>
 
                   <!-- Line Chart -->
-                  <div id="reportsChart"></div>
+                  <div data-jumlah=""  id="reportsChart"></div>
 
+                  @foreach ($jumlah_barang as $row)
+                      {{$dataaa = $row->jumlah_barang}}
+                      
+                  @endforeach
                   <script>
+                    var data =  {{ Js::from($dataaa) }};
                     document.addEventListener("DOMContentLoaded", () => {
                       new ApexCharts(document.querySelector("#reportsChart"), {
                         series: [{
                           name: 'Sales',
-                          data: [31, 40, 28, 51, 42, 82, 56],
+                          data: [
+                            data,
+                          ],
                         }, {
                           name: 'Revenue',
                           data: [11, 32, 45, 32, 34, 52, 41]
