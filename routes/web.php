@@ -70,7 +70,7 @@ Route::get('/contact', [feController::class, 'contact'])->name('contact');
 
 
 Route::get('/data/jenis-produk', [feController::class, 'jenis_produk'])->name('jenis_produk');
-Route::get('/data/jenis-produk/{id}', [jenis_produkController::class, 'fe_sub_jenis_produk'])->name('sub_jenis_produk');
+Route::get('/data/jenis-produk/{slug}', [jenis_produkController::class, 'fe_sub_jenis_produk'])->name('sub_jenis_produk');
 Route::get('/produk/add-jenis-produk', [jenis_produkController::class, 'fe_add_jenis_produk'])->name('add_jenis_produk');
 Route::post('/produk/insert-jenis-produk', [jenis_produkController::class, 'fe_insert_jenis_produk']);
 Route::get('/produk/edit-jenis-produk/{id}', [jenis_produkController::class, 'fe_edit_jenis_produk'])->name('edit_jenis_produk');

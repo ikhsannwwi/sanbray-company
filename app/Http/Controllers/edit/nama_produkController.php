@@ -20,6 +20,10 @@ class nama_produkController extends Controller
     }
 
     public function fe_insert_nama_produk(Request $request){
+        $request->validate([
+            'nama_produk' => 'required',
+            'id_jenis_produk' => 'required',
+        ]);
         $data = nama__produk::create($request->all());
 
         $data->save();

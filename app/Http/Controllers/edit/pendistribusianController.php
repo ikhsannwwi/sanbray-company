@@ -38,6 +38,14 @@ class pendistribusianController extends Controller
         return view('fe.add.add-pendistribusian-to-kredit',compact('data','data_nama_produk','data_tempat_distribusi','data_harga_jual'));
     }
     public function fe_insert_pendistribusian(Request $request){
+        $request->validate([
+            'id_barang' => 'required',
+            'tanggal' => 'required',
+            'id_tempat_distribusi' => 'required',
+            'jumlah_barang' => 'required',
+            'id_harga_jual' => 'required',
+            'pending' => 'required',
+        ]);
         $data = pendistribusian::create($request->all());
 
         $data->save();

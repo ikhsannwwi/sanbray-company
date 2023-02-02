@@ -16,6 +16,9 @@ class tempat_distribusiController extends Controller
         return view('fe.add.add-tempat-distribusi',compact('data'));
     }
     public function fe_insert_tempat_distribusi(Request $request){
+        $request->validate([
+            'tempat_distribusi' => 'required',
+        ]);
         $data = tempat__distribusi::create($request->all());
 
         $data->save();

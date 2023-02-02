@@ -36,13 +36,18 @@
                         @csrf
                         <div class="col-md-4">
                           <label for="inputName5" class="form-label">Harga Jual </label>
-                          <input type="number" name="harga_jual" placeholder="contoh :  5000 " class="form-control" id="inputName5">
+                          <input type="number" name="harga_jual" placeholder="contoh :  5000 " class="form-control @error('harga_jual') is-invalid @enderror" id="inputName5">
+                          @error('harga_jual')
+                            <span class="invalid-feedback d-block">{{$message}}</span>
+                          @enderror
                         </div>
                         <div class="col-md-8">
                           <label for="inputName5" class="form-label">Rp( Nominal )</label>
-                          <input type="text" name="rp" placeholder="contoh : Lima Ribu Rupiah " class="form-control" id="inputName5">
+                          <input type="text" name="rp" placeholder="contoh : Lima Ribu Rupiah " class="form-control @error('rp') is-invalid @enderror" id="inputName5">
+                          @error('rp')
+                            <span class="invalid-feedback d-block">{{$message}}</span>
+                          @enderror
                         </div>
-                        
                         
                         
                         

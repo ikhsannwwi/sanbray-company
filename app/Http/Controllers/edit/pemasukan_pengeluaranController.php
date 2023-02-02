@@ -19,6 +19,13 @@ class pemasukan_pengeluaranController extends Controller
     }
 
     public function fe_insert_pemasukan_pengeluaran(Request $request){
+        $request->validate([
+            'id_barang' => 'required',
+            'tanggal' => 'required',
+            'pemasukan' => 'required',
+            'pengeluaran' => 'required',
+            'deskripsi' => 'required',
+        ]);
         $data = kreditdebit::create($request->all());
 
         $data->save();

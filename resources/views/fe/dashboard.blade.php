@@ -56,8 +56,15 @@
                     
                       // echo $j;
                      
+                      if ($j && $j2 == null or 0) {
+                        # code...
+                        echo null;
+                      } else {
+                        # code...
                         $persentase = ($j / $sales) * 100;
                         $persentase2 = ($j2 / $sales) * 100;
+                      }
+                      
                       
                     @endphp
                     <div class="ps-3 " id="sales-this-month">
@@ -100,14 +107,16 @@
                       <i class="bi bi-currency-dollar"></i>
                     </div>
                     @php
-                        $profit = $pemasukan_all - $pengeluaran_all;
+                    
+                    $profit = $pemasukan_all - $pengeluaran_all;
                         if ($pemasukan_pengeluaran[0]->pemasukan == 0) {
                         $profit2 = $pemasukan_all - $pengeluaran_all + $pemasukan_pengeluaran[0]->pengeluaran;
                       } else {
                         $profit2 = $pemasukan_all - $pengeluaran_all - $pemasukan_pengeluaran[0]->pemasukan;
                       }
-                        
-                        
+                      
+                      
+                      
                         // echo $profit2;
                     @endphp
                     <div class="ps-3">
@@ -173,10 +182,14 @@
 
                         // echo $j2;
                         
-                        
+                        if ($j2 && $total == null or 0) {
+                        echo null ;
+                      } else {
+                        # code...
+                        $persentase = $total / $profit * 100 ;
+                        $persentase2 = $j2 / $profit * 100 ;
+                      }
                         // echo $j2;
-                          $persentase = $total / $profit * 100 ;
-                          $persentase2 = $j2 / $profit * 100 ;
                           // echo $persentase2;
                     @endphp
                     <div class="ps-3">
@@ -241,10 +254,14 @@
                           }
                         }
                         
-                        
+                        if ($j2 && $total >0) {
+                        echo null ;
+                      } else {
+                        $persentase = $total / $profit * 100 ;
+                        $persentase2 = $j2 / $profit * 100 ;
+                        # code...
                         // echo $j2;
-                          $persentase = $total / $profit * 100 ;
-                          $persentase2 = $j2 / $profit * 100 ;
+                      }
                     @endphp
                     <div class="ps-3">
                       <h6>Rp{{$pengeluaran}}</h6>

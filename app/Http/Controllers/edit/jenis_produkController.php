@@ -9,13 +9,13 @@ use App\Models\jenis__produk;
 
 class jenis_produkController extends Controller
 {
-    public function fe_sub_jenis_produk($id)
+    public function fe_sub_jenis_produk($slug)
     {
         // $sub_jenis_produk = $jenis__produk;
-        $jenis_produk = jenis__produk::with('nama_produk')->get();
+        $jenis_produk = jenis__produk::with('nama_produk',$slug)->get();
         // $nama_produk = $jenis_produk;
         dd($jenis_produk);
-        //  return view('fe.data.jenis_produk.sub-jenis-produk', compact('nama_produk'));
+         return view('fe.data.jenis_produk.sub-jenis-produk', compact('jenis_produk'));
     }
 
     public function fe_add_jenis_produk()
@@ -26,6 +26,9 @@ class jenis_produkController extends Controller
     }
 
     public function fe_insert_jenis_produk(Request $request){
+        $request->validate([
+            'jenis_produk' => 'required'
+        ]);
         $data = jenis__produk::create($request->all());
 
         $data->save();
@@ -41,6 +44,9 @@ class jenis_produkController extends Controller
     }
 
     public function fe_update_jenis_produk(Request $request, $id){
+        $request->validate([
+            'jenis_produk' => 'required'
+        ]);
         $data = jenis__produk::find($id);
 
         $data->update($request->all());

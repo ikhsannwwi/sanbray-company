@@ -36,7 +36,10 @@
                         @csrf
                         <div class="col-md-12">
                           <label for="inputName5" class="form-label">Tempat Pendistribusian</label>
-                          <input type="text" name="tempat_distribusi" class="form-control" id="inputName5">
+                          <input type="text" name="tempat_distribusi" class="form-control @error('tempat_distribusi') is-invalid @enderror" id="inputName5">
+                          @error('tempat_distribusi')
+                            <span class="invalid-feedback d-block">{{$message}}</span>
+                          @enderror
                         </div>
                         <div class="text-center">
                           <button type="submit" class="btn btn-primary">Submit</button>

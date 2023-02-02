@@ -27,14 +27,14 @@
         <div class="col">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">{{$sub_jenis_produk->jenis_produk}}</h5>
+              <h5 class="card-title">{{$jenis_produk->jenis_produk}}</h5>
 
               <!-- List group With badges -->
               <ul class="list-group">
-                @foreach ($sub_jenis_produk as $row)
+                @foreach ($jenis_produk->nama_produk as $row)
                     
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                  {{$row->nama_produk->nama_produk}}
+                  {{$row->nama_produk}}
                   <span class="badge bg-primary rounded-pill">14</span>
                 </li>
                 @endforeach

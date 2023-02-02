@@ -38,9 +38,9 @@ class feController extends Controller
 
     public function produk()
     {
-        $pendistribusian = pendistribusian::latest()->get();
+        $pendistribusian = pendistribusian::orderBy('tanggal', 'DESC')->get();
         $nama_produk = nama__produk::all();
-        $pemasukan_pengeluaran = kreditdebit::latest()->get();
+        $pemasukan_pengeluaran = kreditdebit::orderBy('tanggal', 'DESC')->get();
         $pemasukan = kreditdebit::all()->sum('pemasukan') ;
         $pengeluaran = kreditdebit::all()->sum('pengeluaran') ;
 

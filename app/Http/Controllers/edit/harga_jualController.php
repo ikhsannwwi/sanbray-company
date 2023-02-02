@@ -16,6 +16,10 @@ class harga_jualController extends Controller
         return view('fe.add.add-harga-jual',compact('data'));
     }
     public function fe_insert_harga_jual(Request $request){
+        $request->validate([
+            'harga_jual' => 'required',
+            'rp' => 'required',
+        ]);
         $data = harga__jual::create($request->all());
 
         $data->save();

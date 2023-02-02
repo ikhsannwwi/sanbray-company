@@ -47,15 +47,13 @@
                       <!-- Multi Columns Form -->
                       <form action="/produk/update-jenis-produk/{{$data->id}}" method="POST" class="row g-3">
                         @csrf
-                        <div class="col-md-6">
+                        <div class="col-12">
                           <label for="inputName5" class="form-label">Jenis Produk</label>
-                          <input type="text" name="jenis_produk" value="{{$data->jenis_produk}}" class="form-control" id="inputName5">
+                          <input type="text" name="jenis_produk" value="{{$data->jenis_produk}}" class="form-control @error('jenis_produk') is-invalid @enderror" id="inputName5">
                         </div>
-                        <div class="col-md-6">
-                          <label for="inputName5" class="form-label">Slug</label>
-                          <input type="text" name="slug" value="{{$data->slug}}" class="form-control" id="inputName5">
-                        </div>
-                        
+                        @error('jenis_produk')
+                          <span class="invalid-feedback">{{$message}}</span>
+                        @enderror
                         
                         
                         

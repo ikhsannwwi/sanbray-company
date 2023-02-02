@@ -4,13 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\HasSlug;
 
 use Spatie\Activitylog\Traits\LogsActivity;
 
 
 class jenis__produk extends Model
 {
-    use HasFactory,LogsActivity;
+    use HasFactory,HasSlug,LogsActivity;
+   
 
     protected static $logName = 'jenis produk';
 
@@ -24,6 +26,13 @@ class jenis__produk extends Model
     protected $guarded = ['id'];
 
     public function nama_produk(){
-        return $this->hasMany(nama__produk::class, 'id_jenis_produk');
+        return $this->hasMany(nama__produk::class, 'id_jenis_produk','id');
+    }
+
+    public function slugConfigs(): array
+    {
+        return [
+            'slug' => 'jenis_produk'
+        ];
     }
 }

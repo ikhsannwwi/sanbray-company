@@ -36,16 +36,22 @@
                         @csrf
                         <div class="col-md-8">
                           <label for="inputName5" class="form-label">Nama Produk</label>
-                          <input type="text" name="nama_produk" class="form-control" id="inputName5">
+                          <input type="text" name="nama_produk" class="form-control @error('nama_produk') is-invalid @enderror" id="inputName5">
+                          @error('nama_produk')
+                            <span class="invalid-feedback d-block">{{$message}}</span>
+                          @enderror
                         </div>
                         <div class="col-md-4">
                             <label for="inputHarga-jual1" class="form-label">Jenis Produk</label>
-                            <select class="form-select" name="id_jenis_produk" aria-label="Default select example">
-                              <option selected>Open this select menu</option>
+                            <select class="form-select @error('id_jenis_produk') is-invalid @enderror" name="id_jenis_produk" aria-label="Default select example">
+                              <option value="" selected>Open this select menu</option>
                               @foreach ($data_jenis_produk as $row)
                               <option value="{{$row->id}}">{{$row->jenis_produk}}</option>
                               @endforeach
                             </select>
+                            @error('id_jenis_produk')
+                            <span class="invalid-feedback d-block">{{$message}}</span>
+                          @enderror
                           </div>
                         
                         
