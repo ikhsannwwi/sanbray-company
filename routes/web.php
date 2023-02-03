@@ -13,6 +13,7 @@ use App\Http\Controllers\edit\pendistribusianController;
 use App\Http\Controllers\edit\pemasukan_pengeluaranController;
 use App\Http\Controllers\edit\tempat_distribusiController;
 use App\Http\Controllers\edit\harga_jualController;
+use App\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,13 @@ Route::get('/produk', [feController::class, 'produk'])->name('produk');
 
 Route::get('/data/pemasukan-pengeluaran', [feController::class, 'pemasukan_pengeluaran'])->name('pemasukan_pengeluaran');
 
+Route::get('/data/user-table', [feController::class, 'users'])->name('user');
 
+Route::get('/user/add-user', [userController::class, 'fe_add_user'])->name('add_user');
+Route::post('/user/insert-user', [userController::class, 'fe_insert_user']);
+Route::get('/user/edit-user/{id}', [userController::class, 'fe_edit_user'])->name('edit_user');
+Route::post('/user/update-user/{id}', [userController::class, 'fe_update_user']);
+Route::get('/user/delete-user/{id}', [userController::class, 'fe_delete_user']);
 
 Route::get('/produk/add-pendistribusian', [pendistribusianController::class, 'fe_add_pendistribusian'])->name('add_pendistribusian');
 Route::post('/produk/add-pendistribusian-pending/{id}', [pendistribusianController::class, 'fe_add_pendistribusian_pending'])->name('add_pendistribusian_pending');

@@ -15,7 +15,9 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable,LogsActivity;
 
-    protected static $logName = 'user';
+    protected $table = 'users';
+
+    protected static $logName = 'users';
 
     protected static $logAttributes = ['jenis_produk', 'slug'];
 
@@ -33,6 +35,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
+        'foto',
     ];
 
     /**

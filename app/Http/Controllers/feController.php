@@ -10,7 +10,7 @@ use App\Models\jenis__produk;
 use App\Models\harga__jual;
 use App\Models\kreditdebit;
 use App\Models\tempat__distribusi;
-
+use App\Models\User;
 use Spatie\Activitylog\Models\Activity;
 
 
@@ -81,6 +81,12 @@ class feController extends Controller
     public function user_profile()
     {
         return view('fe.pages.user-profile');
+    }
+    public function users()
+    {
+        $data = User::all();
+
+        return view('fe.data.user',compact('data'));
     }
 
     public function faq()
