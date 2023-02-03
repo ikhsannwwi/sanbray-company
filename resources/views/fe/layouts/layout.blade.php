@@ -133,14 +133,15 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item ">
-        <a class="nav-link " href="/">
+        <a class="nav-link {{request()->is('/') ? 'collapsed' : ''}}" href="/">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
+      
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link {{request()->is('produk','data/pemasukan-pengeluaran','data/tempat-distribusi','detail-produk','data/harga-jual') ? 'collapsed' : ''}}" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Produk</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -149,11 +150,17 @@
               <i class="bi bi-circle"></i><span>Produk</span>
             </a>
           </li>
+        <li>
+          <a href="/data/pemasukan-pengeluaran">
+            <i class="bi bi-circle"></i><span>Pemasukan dan Pengeluaran</span>
+          </a>
+        </li>
           <li>
             <a href="/data/tempat-distribusi">
               <i class="bi bi-circle"></i><span>Tempat Distribusi</span>
             </a>
           </li>
+          
           <li>
             <a href="/detail-produk">
               <i class="bi bi-circle"></i><span>Detail Produk</span>
@@ -164,11 +171,6 @@
               <i class="bi bi-circle"></i><span>Harga Jual</span>
             </a>
           </li>
-          <li>
-            <a href="/data/jenis-produk">
-              <i class="bi bi-circle"></i><span>Jenis Produk</span>
-            </a>
-          </li>
         </ul>
       </li><!-- End Components Nav -->
 
@@ -177,21 +179,21 @@
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/data/user-profile">
+        <a class="nav-link {{request()->is('data/user-profile') ? 'collapsed' : ''}}" href="/data/user-profile">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/faq">
+        <a class="nav-link {{request()->is('faq') ? 'collapsed' : ''}}" href="/faq">
           <i class="bi bi-question-circle"></i>
           <span>F.A.Q</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="contact">
+        <a class="nav-link {{request()->is('contact') ? 'collapsed' : ''}}" href="contact">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>
@@ -200,7 +202,7 @@
       <li class="nav-heading">Admin</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#edit-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link {{request()->is('produk/edit-pendistribusian','produk/edit-pemasukan-pengeluaran','produk/edit-nama-produk','produk/edit-tempat-distribusi','edit-detail-produk','produk/edit-harga-jual','produk/edit-jenis-produk','produk/edit-user') ? 'collapsed' : ''}}" data-bs-target="#edit-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Edit</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="edit-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -239,10 +241,22 @@
               <i class="bi bi-circle"></i><span>Jenis Produk</span>
             </a>
           </li>
+          <li>
+            <a href="/produk/edit-user">
+              <i class="bi bi-circle"></i><span>User</span>
+            </a>
+          </li>
         </ul>
       </li><!-- End Components Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#add-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link {{request()->is('produk/add-pendistribusian',
+          'produk/add-pemasukan-pengeluaran',
+          'produk/add-nama-produk',
+          'produk/add-tempat-distribusi',
+          'add-detail-produk',
+          'produk/add-harga-jual',
+          'produk/add-jenis-produk',
+          'produk/add-user') ? 'collapsed' : ''}}" data-bs-target="#add-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Add</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="add-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -281,14 +295,26 @@
               <i class="bi bi-circle"></i><span>Jenis Produk</span>
             </a>
           </li>
+          <li>
+            <a href="/produk/add-user">
+              <i class="bi bi-circle"></i><span>User</span>
+            </a>
+          </li>
         </ul>
       </li><!-- End Components Nav -->
       
 
+      
 
 
-
+      <li class="nav-item ">
+          <a class="nav-link {{request()->is('data/user-table') ? 'collapsed' : ''}}" href="/data/user-table">
+            <i class="bi bi-grid"></i>
+            <span>User</span>
+          </a>
+        </li><!-- End  Nav -->
     </ul>
+    
 
   </aside><!-- End Sidebar-->
 

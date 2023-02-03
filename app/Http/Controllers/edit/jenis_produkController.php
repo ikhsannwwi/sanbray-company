@@ -33,7 +33,7 @@ class jenis_produkController extends Controller
 
         $data->save();
 
-        return redirect()->route('jenis_produk')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->route('produk')->with('success', 'Data berhasil ditambahkan');
     }
 
     public function fe_edit_jenis_produk($id)
@@ -52,13 +52,13 @@ class jenis_produkController extends Controller
         $data->update($request->all());
 
         $data->save();
-        return redirect()->route('jenis_produk')->with('success', 'Data berhasil diupdate');
+        return redirect()->route('produk')->with('success', 'Data berhasil diupdate');
     }
 
     public function fe_delete_jenis_produk($id){
         $data = jenis__produk::find($id);
         
         $data->delete();
-        return redirect()->route('jenis_produk')->with('error', 'Data berhasil dihapus');
+        return redirect()->route('produk')->with('error', 'Data berhasil dihapus');
     }
 }

@@ -73,7 +73,7 @@
                         <button class="nav-link w-100 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-justified" type="button" role="tab" aria-controls="home" aria-selected="true">Pendistribusian</button>
                       </li>
                       <li class="nav-item flex-fill" role="presentation">
-                        <button class="nav-link w-100" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-justified" type="button" role="tab" aria-controls="profile" aria-selected="false">Pemasukan | Pengeluaran</button>
+                        <button class="nav-link w-100" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-justified" type="button" role="tab" aria-controls="profile" aria-selected="false">Jenis Produk</button>
                       </li>
                       <li class="nav-item flex-fill" role="presentation">
                         <button class="nav-link w-100" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-justified" type="button" role="tab" aria-controls="contact" aria-selected="false">Nama Produk</button>
@@ -100,11 +100,11 @@
                           </thead>
                           <tbody>
                             @php
-                              $no = 1;
+                              $no = $pendistribusian->count();
                             @endphp
                             @foreach ($pendistribusian as $row)
                             <tr>
-                              <th scope="row"><a href="/produk/edit-pendistribusian/{{$row->id}}">{{$no++}}</th>
+                              <th scope="row"><a href="/produk/edit-pendistribusian/{{$row->id}}">{{$no--}}</th>
                               <td>{{$row->nama_produk->nama_produk}}</td>
                               <td class="text-center">{{\Carbon\Carbon::parse($row->tanggal)->format('d F Y')}}</td>
                               <td>{{$row->jumlah_barang}}</td>
@@ -130,56 +130,31 @@
                       </div>
 
                       <div class="tab-pane fade overflow__x" id="profile-justified" role="tabpanel" aria-labelledby="profile-tab">
-                        <table class="table table-hover ">
-                          <thead>
-                            <tr>
-                              <th scope="col" class="text-center">#</th>
-                              <th scope="col">Tanggal</th>
-                              <th scope="col">Pemasukan</th>
-                              <th scope="col">Pengeluaran</th>
-                              <th scope="col">Produk</th>
-                              <th scope="col">Deskripsi</th>
-                              <th scope="col">
-                                <a href="/produk/add-pemasukan-pengeluaran" type="button" class="btn ">
+                        <!-- Table with hoverable rows -->
+                        
+                        <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">Jenis Produk</th>
+                                <th scope="col">
+                                <a href="/produk/add-jenis-produk" type="button" class="btn ">
                                   <i class="bx bxs-duplicate bx-sm"></i>
                                 </a>
                               </th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            @php
-                              $no = 1;
-                            @endphp
-                            @foreach ($pemasukan_pengeluaran as $row)
-                            <tr>
-                              <th scope="row" class="text-center"><a href="/produk/edit-pemasukan-pengeluaran/{{$row->id}}">{{$no++}}</th>
-                                <td class="text-center">{{\Carbon\Carbon::parse($row->tanggal)->format('d F Y')}}</td>
-                                <td class="text-success">Rp.{{$row->pemasukan}}</td>
-                                <td class="text-danger">Rp.{{$row->pengeluaran}}</td>
-                                <td>{{$row->nama_produk->nama_produk}}</td>
-                              <td>{{$row->deskripsi}}</td>
-                              <td></td>
-                            </tr>
-                            @endforeach
-                            
-                          </tbody>
-                          @php
-                              $total = $pemasukan - $pengeluaran
-                          @endphp
-                          <tfoot>
-                            <th scope="row"  class="text-center">{{date('F Y')}}</th>
-                            <th scope="row" class="text-center">Jumlah</th>
-                            <td class="text-success">Rp.{{ $pemasukan}}</td>
-                            <td class="text-danger">Rp.{{ $pengeluaran}}</td>
-                            <th scope="row" class="text-center">Sisa Saldo</th>
-                            @if ($total <= 0)
-                            <td class="text-danger">Rp.{{ $total}}</td>
-                            @else
-                            <td class="text-success">Rp.{{ $total}}</td>
-                            @endif
-                          </tfoot>
-                        </table>
-                        <!-- End Table with hoverable rows -->
+                              </tr>
+                            </thead>
+                            <tbody>
+                              @foreach ($jenis_produk as $row)  
+                              <tr>
+                                <th scope="row"><a href="/produk/edit-jenis-produk/{{$row->id}}">{{$row->id}}</a></th>
+                                <td><a href="/data/jenis-produk/{{$row->slug}}">{{$row->jenis_produk}}</a></td>
+                              </tr>
+                              @endforeach
+                              
+                            </tbody>
+                          </table>
+                      <!-- End Table with hoverable rows -->
                       </div>
 
                       <div class="tab-pane fade overflow__x" id="contact-justified" role="tabpanel" aria-labelledby="contact-tab">
@@ -229,6 +204,38 @@
 
           </div><!-- end row -->
       </section><!-- end section -->
+
+      <section class="section" id="section">
+        <div class="row">
+        @foreach ($jenis_produk as $row)
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{$row->jenis_produk}}</h5>
+  
+                <!-- List group With badges -->
+                <ul class="list-group">
+                  
+                  @forelse ($row->nama_produk as $row)
+                  
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{$row->nama_produk}}
+                    {{-- <span class="badge bg-primary rounded-pill">14</span> --}}
+                  </li>
+                  @empty
+                      null
+                  
+                  
+                  @endforelse
+                  
+                </ul><!-- End List With badges -->
+  
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </section>
 
 
 

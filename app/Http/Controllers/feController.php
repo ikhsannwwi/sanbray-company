@@ -40,12 +40,13 @@ class feController extends Controller
     {
         $pendistribusian = pendistribusian::orderBy('tanggal', 'DESC')->get();
         $nama_produk = nama__produk::all();
-        $pemasukan_pengeluaran = kreditdebit::orderBy('tanggal', 'DESC')->get();
-        $pemasukan = kreditdebit::all()->sum('pemasukan') ;
-        $pengeluaran = kreditdebit::all()->sum('pengeluaran') ;
+        
+
+        $jenis_produk  = jenis__produk::with('nama_produk')->get();
 
 
-        return view('fe.produk', compact('pendistribusian', 'nama_produk','pemasukan_pengeluaran','pemasukan','pengeluaran'));
+
+        return view('fe.produk', compact('pendistribusian', 'nama_produk','jenis_produk'));
     }
 
     public function tempat_distribusi()
@@ -62,12 +63,19 @@ class feController extends Controller
         return view('fe.data.harga-jual',compact('harga_jual'));
     }
 
-    public function jenis_produk()
+    public function pemasukan_pengeluaran()
     {
-        $jenis_produk  = jenis__produk::with('nama_produk')->get();
+        $pemasukan_pengeluaran = kreditdebit::orderBy('tanggal', 'DESC')->get();
+        $pemasukan = kreditdebit::all()->sum('pemasukan') ;
+        $pengeluaran = kreditdebit::all()->sum('pengeluaran') ;
+
         // $nama_produk = nama__produk::find($id);
 
-        return view('fe.data.jenis-produk', compact('jenis_produk'));
+        return view('fe.data.pemasukan-pengeluaran', compact(
+            'pemasukan_pengeluaran',
+            'pemasukan',
+            'pengeluaran',
+         ));
     }
 
     public function user_profile()

@@ -57,7 +57,7 @@
                           <label for="inputDate1" class="form-label">Pemasukan</label>
                           <div class="input-group mb-3">
                             <span class="input-group-text">Rp</span>
-                            <input type="number" name="pemasukan" class="form-control @error('pemasukan') is-invalid @enderror" aria-label="Amount (to the nearest dollar)">
+                            <input type="number" name="pemasukan" value="0" class="form-control @error('pemasukan') is-invalid @enderror" aria-label="Amount (to the nearest dollar)">
                             @error('pemasukan')
                             <span class="invalid-feedback d-block">{{$message}}</span>
                           @enderror
@@ -67,7 +67,7 @@
                           <label for="inputDate1" class="form-label">Pengeluaran</label>
                           <div class="input-group mb-3">
                             <span class="input-group-text">Rp</span>
-                            <input type="number" name="pengeluaran" class="form-control @error('pengeluaran') is-invalid @enderror" aria-label="Amount (to the nearest dollar)">
+                            <input type="number" name="pengeluaran" value="0" class="form-control @error('pengeluaran') is-invalid @enderror" aria-label="Amount (to the nearest dollar)">
                             @error('pengeluaran')
                             <span class="invalid-feedback d-block">{{$message}}</span>
                           @enderror

@@ -30,7 +30,7 @@ class pemasukan_pengeluaranController extends Controller
 
         $data->save();
 
-        return redirect()->route('produk')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->route('pemasukan_pengeluaran')->with('success', 'Data berhasil ditambahkan');
     }
 
     public function fe_edit_pemasukan_pengeluaran($id)
@@ -48,13 +48,13 @@ class pemasukan_pengeluaranController extends Controller
         $data->update($request->all());
 
         $data->save();
-        return redirect()->route('produk')->with('success', 'Data berhasil diupdate');
+        return redirect()->route('pemasukan_pengeluaran')->with('success', 'Data berhasil diupdate');
     }
 
     public function fe_delete_pemasukan_pengeluaran($id){
         $data = kreditdebit::find($id);
         
         $data->delete();
-        return redirect()->route('produk')->with('error', 'Data berhasil dihapus');
+        return redirect()->route('pemasukan_pengeluaran')->with('error', 'Data berhasil dihapus');
     }
 }

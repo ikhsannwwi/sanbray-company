@@ -34,6 +34,7 @@ Route::get('/', [feController::class, 'index'])->name('index');
 
 Route::get('/produk', [feController::class, 'produk'])->name('produk');
 
+Route::get('/data/pemasukan-pengeluaran', [feController::class, 'pemasukan_pengeluaran'])->name('pemasukan_pengeluaran');
 
 
 
