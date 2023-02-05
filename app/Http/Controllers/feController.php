@@ -9,6 +9,7 @@ use App\Models\nama__produk;
 use App\Models\jenis__produk;
 use App\Models\harga__jual;
 use App\Models\kreditdebit;
+use App\Models\role;
 use App\Models\tempat__distribusi;
 use App\Models\User;
 use Spatie\Activitylog\Models\Activity;
@@ -87,6 +88,12 @@ class feController extends Controller
         $data = User::all();
 
         return view('fe.data.user',compact('data'));
+    }
+    public function role_user()
+    {
+        $role_user = role::all();
+
+        return view('fe.data.role-user',compact('role_user'));
     }
 
     public function faq()

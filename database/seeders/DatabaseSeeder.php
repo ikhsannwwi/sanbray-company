@@ -12,6 +12,8 @@ use App\Models\nama__produk;
 use App\Models\tempat__distribusi;
 use App\Models\harga__jual;
 use App\Models\jenis__produk;
+use App\Models\role;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -32,7 +34,35 @@ class DatabaseSeeder extends Seeder
             'tempat_distribusi' => 'Kantin Raflesia mart - SMK Negeri 1 Garut',
         ]);
         //endseeder tempat disktribusi
+
+        //seeder role user
+        role::create([
+            'nama_role' => 'Moderator',
+        ]);
+        role::create([
+            'nama_role' => 'Admin',
+        ]);
+        //endseeder role user
         
+        //seeder user
+        User::create([
+            'name' => 'Mochammad Ikhsan Nawawi',
+            'email' => 'moderator@ikhsannawawi.id',
+            'role_id' => '1',
+            'foto' => Str::random(5).'.png',
+            'password' => bcrypt('sanbray'),
+            'remember_token' => Str::random(60),
+        ]);
+        User::create([
+            'name' => 'Mochammad Ikhsan Nawawi',
+            'email' => 'admin@ikhsannawawi.id',
+            'role_id' => '2',
+            'foto' => Str::random(5).'.png',
+            'password' => bcrypt('sanbray'),
+            'remember_token' => Str::random(60),
+        ]);
+        //endseeder user
+
         //seeder nama produk
         nama__produk::create([
             'nama_produk' => 'Lainnya',

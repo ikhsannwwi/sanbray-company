@@ -37,55 +37,56 @@
                           <a href="/produk/add-harga-jual" type="button" class="btn  mt-lg-3">
                             <i class="bx bxs-duplicate bx-sm"></i>
                           </a>
-                          <a href="#" data-id="{{$data->id}}" data-nama="{{$data->harga_jual}}"  type="button" class="btn  mt-lg-3 delete">
+                          <a href="#" data-id="{{$data->id}}" data-nama="{{$data->name}}"  type="button" class="btn  mt-lg-3 delete">
                             <i class="bx bxs-trash-alt bx-sm"></i>
                           </a>
                         </div>
                       </div>
 
                       <!-- Multi Columns Form -->
-                      <form action="/produk/update-harga-jual/{{$data->id}}" method="POST" class="row g-3">
+                      <form action="/user/update-user/{{$data->id}}" method="POST" class="row g-3">
                           @csrf
                           <div class="col-md-12">
                             <label for="inputName5" class="form-label">Email</label>
-                            <input type="email" name="email" value="{{$data->email}}" placeholder="Masukan Email " class="form-control @error('email') is-invalid @enderror" id="inputName5">
+                            <input type="email" name="email" placeholder="Masukan Email " value="{{$data->email}}" class="form-control @error('email') is-invalid @enderror" id="inputName5">
                             @error('email')
                               <span class="invalid-feedback d-block">{{$message}}</span>
                             @enderror
                           </div>
                           <div class="col-md-4">
                             <label for="inputName5" class="form-label">Username</label>
-                            <input type="text" name="name" value="{{$data->name}}" placeholder="Masukan Username " class="form-control @error('name') is-invalid @enderror" id="inputName5">
+                            <input type="text" name="name" placeholder="Masukan Username " value="{{$data->name}}" class="form-control @error('name') is-invalid @enderror" id="inputName5">
                             @error('name')
                               <span class="invalid-feedback d-block">{{$message}}</span>
                             @enderror
                           </div>
                           <div class="col-md-4">
+                            <label for="inputHarga-jual1" class="form-label">Role</label>
+                            <select class="form-select @error('role_id') is-invalid @enderror" name="role_id" aria-label="Default select example">
+                              <option value="{{$data->role_id}}" selected>{{$data->role_user->nama_role}}</option>
+                              @foreach ($data_role_user as $row)
+                            <option value="{{$row->id}}">{{$row->nama_role}}</option>
+                            @endforeach
+                            </select>
+                            @error('role_id')
+                            <span class="invalid-feedback d-block">{{$message}}</span>
+                          @enderror
+                          </div>
+                          {{-- <div class="col-md-4">
                             <label for="inputName5" class="form-label">Password</label>
-                            <input type="password" name="password" value="{{$data->password}}" placeholder="Masukan Password " class="form-control @error('password') is-invalid @enderror" id="inputName5">
+                            <input type="password" name="password" placeholder="Masukan Password " value="{{$data->password}}" class="form-control @error('password') is-invalid @enderror" id="inputName5">
                             @error('password')
                               <span class="invalid-feedback d-block">{{$message}}</span>
                             @enderror
-                          </div>
+                          </div> --}}
                           <div class="col-md-4">
                             <label for="inputName5" class="form-label">Foto</label>
-                            <input type="file" name="foto" value="{{$data->foto}}" placeholder="Masukan Foto " class="form-control @error('foto') is-invalid @enderror" id="inputName5">
+                            <input type="file" name="foto" placeholder="Masukan Foto" value="{{$data->foto}}" class="form-control @error('foto') is-invalid @enderror" id="inputName5">
                             @error('foto')
                               <span class="invalid-feedback d-block">{{$message}}</span>
                             @enderror
                           </div>
-                          <div class="col-md-12">
-                            <label for="inputHarga-jual1" class="form-label">Role</label>
-                            <select class="form-select @error('role') is-invalid @enderror" name="role"  aria-label="Default select example">
-                              <option value="{{$data->role->id}}" selected>{{$data->role->nama_role}}</option>
-                              @foreach ($data->role as $row)
-                            <option value="{{$row->id}}">{{$row->nama_role}}</option>
-                            @endforeach
-                            </select>
-                            @error('role')
-                            <span class="invalid-feedback d-block">{{$message}}</span>
-                          @enderror
-                          </div>
+                          
                           
                           
                           
@@ -94,6 +95,7 @@
                           <div class="text-center">
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <button type="reset" class="btn btn-secondary">Reset</button>
+                            <a type="button" class="btn btn-success" href="/user/edit-password-user/{{$data->id}}">Edit Password</a>
                           </div>
                         </form><!-- End Multi Columns Form -->
         
@@ -121,7 +123,7 @@
 
         swalWithBootstrapButtons.fire({
           title: 'Yakin?',
-          text: "Kamu akan menghapus data Jenis Produk dengan nama " + nama + " ",
+          text: "Kamu akan menghapus data User dengan nama " + nama + " ",
           icon: 'warning',
           showCancelButton: true,
           confirmButtonText: 'Yes, delete it!',
@@ -129,7 +131,7 @@
           reverseButtons: true
         }).then((result) => {
           if (result.isConfirmed) {
-            window.location = "/produk/delete-harga-jual/" + id + ""
+            window.location = "/user/delete-user/" + id + ""
             swalWithBootstrapButtons.fire(
               'Deleted!',
               'Data '+ nama +' has been deleted.',

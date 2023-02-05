@@ -15,7 +15,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable,LogsActivity;
 
-    protected $table = 'users';
+    // protected $table = 'users';
 
     protected static $logName = 'users';
 
@@ -26,6 +26,9 @@ class User extends Authenticatable
         return "Kamu melakukan {$eventName} pada data user";
     }
 
+    public function role_user(){
+        return $this->belongsTo(role::class , 'role_id');
+    }
     /**
      * The attributes that are mass assignable.
      *

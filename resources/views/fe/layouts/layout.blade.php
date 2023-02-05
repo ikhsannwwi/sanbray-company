@@ -70,13 +70,13 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="{{asset("sanbray-co/img/profile-img.jpg")}}" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{auth()->user()->name}}</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
+              <h6>{{auth()->user()->name}}</h6>
+              <span>{{auth()->user()->role_user->nama_role}}</span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -113,7 +113,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="/logout">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -199,10 +199,13 @@
         </a>
       </li><!-- End Contact Page Nav -->
 
+      @if (auth()->user()->role_id == 1)
+
+
       <li class="nav-heading">Admin</li>
 
       <li class="nav-item">
-        <a class="nav-link {{request()->is('produk/edit-pendistribusian','produk/edit-pemasukan-pengeluaran','produk/edit-nama-produk','produk/edit-tempat-distribusi','edit-detail-produk','produk/edit-harga-jual','produk/edit-jenis-produk','produk/edit-user') ? 'collapsed' : ''}}" data-bs-target="#edit-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link {{request()->is('produk/edit-pendistribusian','produk/edit-pemasukan-pengeluaran','produk/edit-nama-produk','produk/edit-tempat-distribusi','edit-detail-produk','produk/edit-harga-jual','produk/edit-jenis-produk','user/edit-user') ? 'collapsed' : ''}}" data-bs-target="#edit-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Edit</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="edit-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -242,8 +245,13 @@
             </a>
           </li>
           <li>
-            <a href="/produk/edit-user">
+            <a href="/user/edit-user">
               <i class="bi bi-circle"></i><span>User</span>
+            </a>
+          </li>
+          <li>
+            <a href="/user/edit-role">
+              <i class="bi bi-circle"></i><span>Role User</span>
             </a>
           </li>
         </ul>
@@ -256,7 +264,7 @@
           'add-detail-produk',
           'produk/add-harga-jual',
           'produk/add-jenis-produk',
-          'produk/add-user') ? 'collapsed' : ''}}" data-bs-target="#add-nav" data-bs-toggle="collapse" href="#">
+          'user/add-user') ? 'collapsed' : ''}}" data-bs-target="#add-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Add</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="add-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -296,8 +304,13 @@
             </a>
           </li>
           <li>
-            <a href="/produk/add-user">
+            <a href="/user/add-user">
               <i class="bi bi-circle"></i><span>User</span>
+            </a>
+          </li>
+          <li>
+            <a href="/user/add-role">
+              <i class="bi bi-circle"></i><span>Role User</span>
             </a>
           </li>
         </ul>
@@ -305,16 +318,23 @@
       
 
       
-
-
+          
+      
       <li class="nav-item ">
           <a class="nav-link {{request()->is('data/user-table') ? 'collapsed' : ''}}" href="/data/user-table">
             <i class="bi bi-grid"></i>
             <span>User</span>
           </a>
         </li><!-- End  Nav -->
-    </ul>
-    
+      <li class="nav-item ">
+        <a class="nav-link {{request()->is('data/role-user') ? 'collapsed' : ''}}" href="/data/role-user">
+            <i class="bi bi-grid"></i>
+            <span>Role User</span>
+          </a>
+        </li><!-- End  Nav -->
+        @endif
+      </ul>
+      
 
   </aside><!-- End Sidebar-->
 

@@ -186,8 +186,8 @@
                         echo null ;
                       } else {
                         # code...
-                        $persentase = $total / $profit * 100 ;
-                        $persentase2 = $j2 / $profit * 100 ;
+                        // $persentase = $total / $profit * 100 ;
+                        // $persentase2 = $j2 / $profit * 100 ;
                       }
                         // echo $j2;
                           // echo $persentase2;

@@ -45,13 +45,13 @@ h6 {
   padding: 20px 30px;
   transition: all 0.3s;
 }
+.overflow__x{
+  overflow-x: scroll;
+}
 
 @media (max-width: 1199px) {
   #main {
     padding: 20px;
-  }
-  .overflow__x{
-    overflow-x: scroll;
   }
 }
 

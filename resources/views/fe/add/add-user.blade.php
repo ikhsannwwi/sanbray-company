@@ -32,7 +32,7 @@
                       <h5 class="card-title">Form User</h5>
         
                       <!-- Multi Columns Form -->
-                      <form action="/produk/insert-user" method="POST" class="row g-3">
+                      <form action="/user/insert-user" method="POST" class="row g-3">
                         @csrf
                         <div class="col-md-12">
                           <label for="inputName5" class="form-label">Email</label>
@@ -65,10 +65,10 @@
                         <div class="col-md-12">
                           <label for="inputHarga-jual1" class="form-label">Role</label>
                           <select class="form-select @error('role_id') is-invalid @enderror" name="role_id" aria-label="Default select example">
-                            <option value="1" selected>Open this select menu</option>
-                            {{-- @foreach ($data_nama_produk as $row) --}}
-                          <option value="1">1</option>
-                          {{-- @endforeach --}}
+                            <option value="" selected>Open this select menu</option>
+                            @foreach ($data_role_user as $row)
+                          <option value="{{$row->id}}">{{$row->nama_role}}</option>
+                          @endforeach
                           </select>
                           @error('role_id')
                           <span class="invalid-feedback d-block">{{$message}}</span>

@@ -1,21 +1,21 @@
 @extends('fe.layouts.layout')
 
 @section('title')
-    Data Users |
+    Data Role User |
 @endsection
 
 @section('content')
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Tempat Distribusi</h1>
+        <h1>Role User</h1>
         <nav>
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item">
               <a class="collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">Produk</a>
             </li>
-            <li class="breadcrumb-item active">Tempat DIstribusi</li>
+            <li class="breadcrumb-item active">Role User</li>
           </ol>
         </nav>
       </div><!-- End Page Title -->
@@ -31,7 +31,7 @@
                           <h5 class="card-title">Table with hoverable rows</h5>
                         </div>
                         <div class="col-lg-1 ">
-                          <a href="/user/add-user" type="button" class="btn  mt-lg-3">
+                          <a href="/user/add-role-user" type="button" class="btn  mt-lg-3">
                             <i class="bx bxs-duplicate bx-sm"></i>
                           </a>
                         </div>
@@ -39,24 +39,18 @@
         
                       <!-- Table with hoverable rows -->
                       <div class="overflow__x">
-                        <table class="table table-hover overflow__x">
+                        <table class="table table-hover">
                             <thead>
                               <tr>
                                 <th scope="col">id</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Role</th>                     
-                                <th scope="col">Password</th>
+                                <th scope="col">Role User</th>
                               </tr>
                             </thead>
                             <tbody>
-                              @foreach ($data as $row)
+                              @foreach ($role_user as $row)
                               <tr>
-                                <th scope="row"><a href="/user/edit-user/{{$row->id}}">{{$row->id}}</a></th>
-                                <td>{{$row->name}}</td>                       
-                                <td>{{$row->email}}</td>                       
-                                <td>{{$row->role_user->nama_role}}</td>                       
-                                <td>{{$row->password}}</td>                       
+                                <th scope="row"><a href="/user/edit-role-user/{{$row->id}}">{{$row->id}}</a></th>
+                                <td>{{$row->nama_role}}</td>
                               </tr>
                               @endforeach
                               
