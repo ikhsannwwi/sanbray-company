@@ -65,7 +65,9 @@
           </a>
         </li><!-- End Search Icon-->
 
-
+        @if (auth()->user())
+            
+            
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
@@ -121,6 +123,13 @@
 
           </ul><!-- End Profile Dropdown Items -->
         </li><!-- End Profile Nav -->
+        @else
+        <a class="nav-link nav-profile d-flex align-items-center pe-3" href="/login">
+          <span class="d-none d-md-block dropdown-toggle ps-2">Login</span>
+        </a><!-- End Profile Iamge Icon -->
+        @endif
+
+
 
       </ul>
     </nav><!-- End Icons Navigation -->
@@ -139,10 +148,12 @@
         </a>
       </li><!-- End Dashboard Nav -->
       
-
+      @if (auth()->user())
+          
+          
       <li class="nav-item">
         <a class="nav-link {{request()->is('produk','data/pemasukan-pengeluaran','data/tempat-distribusi','detail-produk','data/harga-jual') ? 'collapsed' : ''}}" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Produk</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-clipboard-data"></i><span>Produk</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -185,6 +196,8 @@
         </a>
       </li><!-- End Profile Page Nav -->
 
+      @endif
+
       <li class="nav-item">
         <a class="nav-link {{request()->is('faq') ? 'collapsed' : ''}}" href="/faq">
           <i class="bi bi-question-circle"></i>
@@ -199,6 +212,9 @@
         </a>
       </li><!-- End Contact Page Nav -->
 
+        @if (auth()->user())
+
+
       @if (auth()->user()->role_id == 1)
 
 
@@ -206,7 +222,7 @@
 
       <li class="nav-item">
         <a class="nav-link {{request()->is('produk/edit-pendistribusian','produk/edit-pemasukan-pengeluaran','produk/edit-nama-produk','produk/edit-tempat-distribusi','edit-detail-produk','produk/edit-harga-jual','produk/edit-jenis-produk','user/edit-user') ? 'collapsed' : ''}}" data-bs-target="#edit-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Edit</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-pencil-square"></i><span>Edit</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="edit-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -265,7 +281,7 @@
           'produk/add-harga-jual',
           'produk/add-jenis-produk',
           'user/add-user') ? 'collapsed' : ''}}" data-bs-target="#add-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Add</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-clipboard-plus"></i><span>Add</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="add-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -322,17 +338,27 @@
       
       <li class="nav-item ">
           <a class="nav-link {{request()->is('data/user-table') ? 'collapsed' : ''}}" href="/data/user-table">
-            <i class="bi bi-grid"></i>
+            <i class="bi bi-person-lines-fill"></i>
             <span>User</span>
           </a>
         </li><!-- End  Nav -->
       <li class="nav-item ">
         <a class="nav-link {{request()->is('data/role-user') ? 'collapsed' : ''}}" href="/data/role-user">
-            <i class="bi bi-grid"></i>
+            <i class="bi bi-shield-shaded"></i>
             <span>Role User</span>
           </a>
         </li><!-- End  Nav -->
         @endif
+        @endif
+        @if (!auth()->user())
+        <li class="nav-item ">
+          <a class="nav-link {{request()->is('login') ? 'collapsed' : ''}}" href="/login">
+            <i class="bi bi-box-arrow-in-right"></i>
+            <span>Login</span>
+          </a>
+        </li><!-- End  Nav -->
+        @endif
+
       </ul>
       
 

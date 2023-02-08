@@ -80,6 +80,14 @@ class DatabaseSeeder extends Seeder
             'nama_produk' => 'Kerupuk Solondok',
             'id_jenis_produk' => '2',
         ]);
+        nama__produk::create([
+            'nama_produk' => 'Kerupuk Gurilem',
+            'id_jenis_produk' => '2',
+        ]);
+        nama__produk::create([
+            'nama_produk' => 'Kerupuk Rambo',
+            'id_jenis_produk' => '2',
+        ]);
         //endseeder  nama produk
 
         //seeder jenis produk

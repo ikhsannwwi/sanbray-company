@@ -149,6 +149,7 @@
                               <tr>
                                 <th scope="row"><a href="/produk/edit-jenis-produk/{{$row->id}}">{{$row->id}}</a></th>
                                 <td><a href="/data/jenis-produk/{{$row->slug}}">{{$row->jenis_produk}}</a></td>
+                                <td></td>
                               </tr>
                               @endforeach
                               

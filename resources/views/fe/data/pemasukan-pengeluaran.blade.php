@@ -1,21 +1,21 @@
 @extends('fe.layouts.layout')
 
 @section('title')
-    Data Jenis Produks |
+    Data Pemasukan & Pengeluaran |
 @endsection
 
 @section('content')
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Jenis Produk</h1>
+        <h1>Pemasukan & Pengeluaran</h1>
         <nav>
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item">
               <a class="collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">Produk</a>
             </li>
-            <li class="breadcrumb-item active">Jenis Produk</li>
+            <li class="breadcrumb-item active">Pemasukan & Pengeluaran</li>
           </ol>
         </nav>
       </div><!-- End Page Title -->

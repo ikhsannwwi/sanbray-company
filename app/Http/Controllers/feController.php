@@ -33,7 +33,12 @@ class feController extends Controller
         $sales = pendistribusian::whereMonth('tanggal', '=', date('m'))->sum('jumlah_barang') ;
         $salesperday = pendistribusian::whereMonth('tanggal', '=', date('d'))->sum('jumlah_barang') ;
 
-        return view('fe.dashboard',compact('act','pemasukan','pengeluaran','pemasukan_all','pengeluaran_all','sales','pemasukan_pengeluaran','jumlah_barang','salesperday'));
+        $barang_pending = pendistribusian::where('pending' , '=' , null)->get() ;
+
+        return view('fe.dashboard',compact('act','pemasukan','pengeluaran','pemasukan_all',
+        'pengeluaran_all','sales','pemasukan_pengeluaran','jumlah_barang','salesperday',
+        'barang_pending',
+    ));
     }
 
 

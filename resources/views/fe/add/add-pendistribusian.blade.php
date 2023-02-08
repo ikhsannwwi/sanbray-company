@@ -75,7 +75,7 @@
                         <div class="col-md-6">
                           <label for="inputHarga-jual1" class="form-label">Harga Jual</label>
                           <select class="form-select @error('id_harga_jual') is-invalid @enderror" name="id_harga_jual" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
+                            <option value="" selected>Open this select menu</option>
                             @foreach ($data_harga_jual as $row)
                             <option value="{{$row->id}}">Rp.{{$row->harga_jual}} ( {{$row->rp}} )</option>
                             @endforeach

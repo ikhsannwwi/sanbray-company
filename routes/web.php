@@ -49,8 +49,8 @@ Route::get('/user/edit-role-user/{id}', [role_userController::class, 'fe_edit_ro
 Route::post('/user/update-role-user/{id}', [role_userController::class, 'fe_update_role_user'])->middleware('auth');
 Route::get('/user/delete-role-user/{id}', [role_userController::class, 'fe_delete_role_user'])->middleware('auth');
 
-Route::get('/user/add-user', [userController::class, 'fe_add_user'])->name('add_user');
-Route::post('/user/insert-user', [userController::class, 'fe_insert_user']);
+Route::get('/user/add-user', [userController::class, 'fe_add_user'])->name('add_user')->middleware('auth');
+Route::post('/user/insert-user', [userController::class, 'fe_insert_user'])->middleware('auth');
 Route::get('/user/edit-user/{id}', [userController::class, 'fe_edit_user'])->name('edit_user')->middleware('auth');
 Route::post('/user/update-user/{id}', [userController::class, 'fe_update_user'])->middleware('auth');
 Route::get('/user/edit-password-user/{id}', [userController::class, 'fe_edit_password_user'])->name('edit_password_user')->middleware('auth');
@@ -83,8 +83,8 @@ Route::get('/produk/delete-nama-produk/{id}', [nama_produkController::class, 'fe
 
 
 Route::get('/data/user-profile', [feController::class, 'user_profile'])->name('user_profile')->middleware('auth');
-Route::get('/faq', [feController::class, 'faq'])->name('faq')->middleware('auth');
-Route::get('/contact', [feController::class, 'contact'])->name('contact')->middleware('auth');
+Route::get('/faq', [feController::class, 'faq'])->name('faq');
+Route::get('/contact', [feController::class, 'contact'])->name('contact');
 
 
 

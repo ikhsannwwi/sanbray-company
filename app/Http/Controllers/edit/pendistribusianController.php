@@ -44,7 +44,6 @@ class pendistribusianController extends Controller
             'id_tempat_distribusi' => 'required',
             'jumlah_barang' => 'required',
             'id_harga_jual' => 'required',
-            'pending' => 'required',
         ]);
         $data = pendistribusian::create($request->all());
 
