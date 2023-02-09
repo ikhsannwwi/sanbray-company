@@ -278,10 +278,9 @@
               </div>
             </div><!-- End Revenue Card -->
 
-            <!-- Customers Card -->
-            <div class="col-xxl-4 col-xl-12">
-
-              <div class="card info-card customers-card">
+            <!-- Top Selling -->
+            <div class="col-12">
+              <div class="card top-selling overflow-auto">
 
                 <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -296,34 +295,40 @@
                   </ul>
                 </div>
 
-                <div class="card-body">
-                  <h5 class="card-title">Customers <span>| This Year</span></h5>
-                  
-                  @php
-                    $barang = $barang_pending->sum('jumlah_barang');
-                  foreach ($barang_pending as $row) {
-                    # code...
-                    echo $harga = $row->harga_jual->harga_jual;
-                    $jumlah = $barang * $harga;
-                  }
-                  echo $total = $jumlah;
-                  @endphp
+                <div class="card-body pb-0">
+                  <h5 class="card-title">Barang Yang tertunda <span>| Today</span></h5>
 
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-people"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>{{$total}}</h6>
-                      <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
-                    </div>
-                  </div>
+                  <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nama Produk</th>
+                        <th scope="col">Tempat distribusi</th>
+                        <th scope="col">Harga Barang</th>
+                        <th scope="col">Jumlah Barang</th>
+                        <th scope="col">Pendapatan</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($barang_pending as $row)
+                          
+                      <tr>
+                        <th scope="row"><a href="#" class="text-primary fw-bold">{{$row->nama_produk->nama_produk}}</a></th>
+                        <td class="fw-bold">{{$row->tempat_distribusi->tempat_distribusi}}</td>
+                        <td>Rp{{$row->harga_jual->harga_jual}}</td>
+                        <td class="fw-bold">{{$row->jumlah_barang}}</td>
+                        <td class="text-success fw-bold">Rp{{$row->jumlah_barang * $row->harga_jual->harga_jual}}</td>
+                      </tr>
+                      @endforeach
+                      
+                    </tbody>
+                  </table>
 
                 </div>
-              </div>
 
-            </div><!-- End Customers Card -->
+              </div>
+            </div><!-- End Top Selling -->
+
+            
 
             <!-- Reports -->
             <div class="col-12">
