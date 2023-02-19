@@ -28,7 +28,7 @@
                     <div class="card-body">
                       <div class="row">
                         <div class="col-lg-11 ">
-                          <h5 class="card-title">Table with hoverable rows</h5>
+                          <h5 class="card-title">Data Tempat Distribusi</h5>
                         </div>
                         <div class="col-lg-1 ">
                           <a href="/produk/add-tempat-distribusi" type="button" class="btn  mt-lg-3">

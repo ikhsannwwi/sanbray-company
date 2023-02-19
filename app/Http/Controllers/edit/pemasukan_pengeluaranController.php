@@ -12,7 +12,7 @@ class pemasukan_pengeluaranController extends Controller
     public function fe_add_pemasukan_pengeluaran()
     {
         $add_pemasukan_pengeluaran = kreditdebit::all() ;
-        $data_nama_produk = nama__produk::all();
+        $data_nama_produk = nama__produk::where('disable','=', null)->orWhere('disable','=', 99)->get();
 
 
         return view('fe.add.add-pemasukan-pengeluaran', compact('add_pemasukan_pengeluaran','data_nama_produk'));
@@ -37,7 +37,7 @@ class pemasukan_pengeluaranController extends Controller
     {
         // $data = kreditdebit::with('nama__produk');
         $data = kreditdebit::find($id);
-        $data_nama_produk = nama__produk::all();
+        $data_nama_produk = nama__produk::where('disable','=', null)->orWhere('disable','=', 99)->get();
 
         return view('fe.edit.edit-pemasukan-pengeluaran' ,compact('data','data_nama_produk'));
     }

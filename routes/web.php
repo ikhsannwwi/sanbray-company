@@ -13,6 +13,7 @@ use App\Http\Controllers\edit\pendistribusianController;
 use App\Http\Controllers\edit\pemasukan_pengeluaranController;
 use App\Http\Controllers\edit\tempat_distribusiController;
 use App\Http\Controllers\edit\harga_jualController;
+use App\Http\Controllers\edit\stok_produkController;
 use App\Http\Controllers\edit\role_userController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\authController;
@@ -39,6 +40,8 @@ Route::get('/produk', [feController::class, 'produk'])->name('produk')->middlewa
 
 Route::get('/data/pemasukan-pengeluaran', [feController::class, 'pemasukan_pengeluaran'])->name('pemasukan_pengeluaran')->middleware('auth');
 
+Route::get('/data/stok-produk', [feController::class, 'stok_produk'])->name('stok_produk')->middleware('auth');
+
 Route::get('/data/user-table', [feController::class, 'users'])->name('user')->middleware('auth');
 
 Route::get('/data/role-user', [feController::class, 'role_user'])->name('role_user')->middleware('auth');
@@ -59,7 +62,9 @@ Route::get('/user/delete-user/{id}', [userController::class, 'fe_delete_user'])-
 
 Route::get('/produk/add-pendistribusian', [pendistribusianController::class, 'fe_add_pendistribusian'])->name('add_pendistribusian')->middleware('auth');
 Route::post('/produk/add-pendistribusian-pending/{id}', [pendistribusianController::class, 'fe_add_pendistribusian_pending'])->name('add_pendistribusian_pending')->middleware('auth');
+Route::post('/produk/add-pendistribusian-pending-gudang/{id}', [pendistribusianController::class, 'fe_add_pendistribusian_pending_gudang'])->name('add_pendistribusian_pending_gudang')->middleware('auth');
 Route::get('/produk/add-pendistribusian-to-kredit/{id}', [pendistribusianController::class, 'fe_add_pendistribusian_to_kredit'])->name('add_pendistribusian_to_kredit')->middleware('auth');
+Route::get('/produk/add-pengurangan-stok-produk/{id}', [pendistribusianController::class, 'fe_add_pengurangan_stok_produk'])->name('add_pengurangan_stok_produk')->middleware('auth');
 Route::post('/produk/insert-pendistribusian', [pendistribusianController::class, 'fe_insert_pendistribusian'])->middleware('auth');
 Route::get('/produk/edit-pendistribusian/{id}', [pendistribusianController::class, 'fe_edit_pendistribusian'])->name('edit_pendistribusian')->middleware('auth');
 Route::post('/produk/update-pendistribusian/{id}', [pendistribusianController::class, 'fe_update_pendistribusian'])->middleware('auth');
@@ -73,6 +78,12 @@ Route::get('/produk/edit-pemasukan-pengeluaran/{id}', [pemasukan_pengeluaranCont
 Route::post('/produk/update-pemasukan-pengeluaran/{id}', [pemasukan_pengeluaranController::class, 'fe_update_pemasukan_pengeluaran'])->middleware('auth');
 Route::get('/produk/delete-pemasukan-pengeluaran/{id}', [pemasukan_pengeluaranController::class, 'fe_delete_pemasukan_pengeluaran'])->middleware('auth');
 
+
+Route::get('/produk/add-stok-produk', [stok_produkController::class, 'fe_add_stok_produk'])->name('add_stok_produk')->middleware('auth');
+Route::post('/produk/insert-stok-produk', [stok_produkController::class, 'fe_insert_stok_produk'])->middleware('auth');
+Route::get('/produk/edit-stok-produk/{id}', [stok_produkController::class, 'fe_edit_stok_produk'])->name('edit_stok_produk')->middleware('auth');
+Route::post('/produk/update-stok-produk/{id}', [stok_produkController::class, 'fe_update_stok_produk'])->middleware('auth');
+Route::get('/produk/delete-stok-produk/{id}', [stok_produkController::class, 'fe_delete_stok_produk'])->middleware('auth');
 
 
 Route::get('/produk/add-nama-produk', [nama_produkController::class, 'fe_add_nama_produk'])->name('add_nama_produk')->middleware('auth');

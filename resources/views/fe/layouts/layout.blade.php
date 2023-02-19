@@ -166,6 +166,11 @@
             <i class="bi bi-circle"></i><span>Pemasukan dan Pengeluaran</span>
           </a>
         </li>
+        <li>
+          <a href="/data/stok-produk">
+            <i class="bi bi-circle"></i><span>Stok Produk</span>
+          </a>
+        </li>
           <li>
             <a href="/data/tempat-distribusi">
               <i class="bi bi-circle"></i><span>Tempat Distribusi</span>
@@ -221,13 +226,18 @@
       <li class="nav-heading">Admin</li>
 
       <li class="nav-item">
-        <a class="nav-link {{request()->is('produk/edit-pendistribusian','produk/edit-pemasukan-pengeluaran','produk/edit-nama-produk','produk/edit-tempat-distribusi','edit-detail-produk','produk/edit-harga-jual','produk/edit-jenis-produk','user/edit-user') ? 'collapsed' : ''}}" data-bs-target="#edit-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link {{request()->is('produk/edit-pendistribusian','produk/edit-stok-produk','produk/edit-pemasukan-pengeluaran','produk/edit-nama-produk','produk/edit-tempat-distribusi','edit-detail-produk','produk/edit-harga-jual','produk/edit-jenis-produk','user/edit-user') ? 'collapsed' : ''}}" data-bs-target="#edit-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-pencil-square"></i><span>Edit</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="edit-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="/produk/edit-pendistribusian">
               <i class="bi bi-circle"></i><span>Pendistribusian</span>
+            </a>
+          </li>
+          <li>
+            <a href="/produk/edit-stok-produk">
+              <i class="bi bi-circle"></i><span>Stok Produk</span>
             </a>
           </li>
           <li>
@@ -280,6 +290,7 @@
           'add-detail-produk',
           'produk/add-harga-jual',
           'produk/add-jenis-produk',
+          'produk/add-stok-produk',
           'user/add-user') ? 'collapsed' : ''}}" data-bs-target="#add-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-clipboard-plus"></i><span>Add</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -287,6 +298,11 @@
           <li>
             <a href="/produk/add-pendistribusian">
               <i class="bi bi-circle"></i><span>Pendistribusian</span>
+            </a>
+          </li>
+          <li>
+            <a href="/produk/add-stok-produk">
+              <i class="bi bi-circle"></i><span>Stok Produk</span>
             </a>
           </li>
           <li>

@@ -91,6 +91,7 @@
                               <th scope="col">Jumlah Barang</th>
                               <th scope="col">Tempat</th>
                               <th scope="col">Harga Jual</th>
+                              <th scope="col">Pengurangan Stok</th>
                               <th scope="col">
                                 <a href="/produk/add-pendistribusian" type="button" class="btn ">
                                   <i class="bx bxs-duplicate bx-sm"></i>
@@ -110,6 +111,17 @@
                               <td>{{$row->jumlah_barang}}</td>
                               <td>{{$row->tempat_distribusi->tempat_distribusi}}</td>
                               <td>Rp.{{$row->harga_jual->harga_jual}}</td>
+                              @if ($row->pending_gudang == 0 or null)
+                              <td>
+                                <form action="/produk/add-pendistribusian-pending-gudang/{{$row->id}}" method="post">
+                                  @csrf
+                                  <input class="d-none" name="pending_gudang" value="1">
+                                  <button type="submit" class="btn text-primary">Kalkulasi</button>
+                                </form>
+                              </td>
+                              @else
+                              <td>Sudah dikalkulasi</td>
+                              @endif
                               @if ($row->pending == 0 or null)
                               <td>
                                 <form action="/produk/add-pendistribusian-pending/{{$row->id}}" method="post">
@@ -185,6 +197,14 @@
                               <td></td>
                             </tr>
                             @endforeach
+                            @foreach ($nama_produk_disable as $row)
+                            <tr class="disabled--">
+                              <th scope="row"><a href="/produk/edit-nama-produk/{{$row->id}}">{{$no++}}</th>
+                              <td >{{$row->nama_produk}}</td>
+                              <td >{{$row->jenis_produk->jenis_produk}}</td>
+                              <td></td>
+                            </tr>
+                            @endforeach
                             
                           </tbody>
                         </table>
@@ -219,7 +239,7 @@
                   
                   @forelse ($row->nama_produk as $row)
                   
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <li class="list-group-item d-flex justify-content-between align-items-center @if($row->disable == 1) disabled-- @endif">
                     {{$row->nama_produk}}
                     {{-- <span class="badge bg-primary rounded-pill">14</span> --}}
                   </li>

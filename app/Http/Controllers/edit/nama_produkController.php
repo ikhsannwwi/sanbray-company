@@ -18,6 +18,7 @@ class nama_produkController extends Controller
 
         return view('fe.add.add-nama-produk', compact('add_nama_produk','data_jenis_produk'));
     }
+    
 
     public function fe_insert_nama_produk(Request $request){
         $request->validate([

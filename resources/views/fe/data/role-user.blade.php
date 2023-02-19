@@ -13,7 +13,7 @@
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item">
-              <a class="collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">Produk</a>
+              <a class="collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">User</a>
             </li>
             <li class="breadcrumb-item active">Role User</li>
           </ol>
@@ -28,7 +28,7 @@
                     <div class="card-body">
                       <div class="row">
                         <div class="col-lg-11 ">
-                          <h5 class="card-title">Table with hoverable rows</h5>
+                          <h5 class="card-title">Data Roles User</h5>
                         </div>
                         <div class="col-lg-1 ">
                           <a href="/user/add-role-user" type="button" class="btn  mt-lg-3">

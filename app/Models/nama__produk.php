@@ -28,4 +28,8 @@ class nama__produk extends Model
     public function jenis_produk(){
         return $this->belongsTo(jenis__produk::class , 'id_jenis_produk');
     }
+
+    public function stok_produk(){
+        return $this->hasMany(stok_produk::class, 'id_nama_produk','id');
+    }
 }

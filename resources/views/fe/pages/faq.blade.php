@@ -26,25 +26,38 @@
               <div class="card basic">
                 <div class="card-body">
                 <h5 class="card-title">
-                Basic Questions</h5>
+                Mengenai Data Distribusi</h5>
                 <div>
                 <h6>
-                1. Nisi ut ut exercitationem voluptatem esse sunt rerum?</h6>
+                1. Apa itu data website pendistribusian produk?</h6>
                 <p>
-                Saepe perspiciatis ea. Incidunt blanditiis enim mollitia qui voluptates. Id rem nulla tenetur nihil in unde rerum. Quae consequatur placeat qui cumque earum eius omnis quos.</p>
+                  Data website pendistribusian produk adalah informasi yang dikumpulkan dan disimpan oleh sebuah situs web yang berfungsi sebagai pasar online yang menghubungkan penjual dan pembeli untuk melakukan transaksi pembelian dan pengiriman produk.</p>
               </div>
               <div class="pt-2">
                 <h6>
-                2. Reiciendis dolores repudiandae?</h6>
+                2. Apa yang bisa saya temukan dari data website pendistribusian produk?</h6>
                 <p>
-                Id ipsam non ut. Placeat doloremque deserunt quia tenetur inventore laboriosam dolores totam odio. Aperiam incidunt et. Totam ut quos sunt atque modi molestiae dolorem.</p>
+                  Anda dapat menemukan berbagai macam informasi, seperti jenis produk yang tersedia, harga, deskripsi produk, penjual, rating dan ulasan dari pembeli, dan informasi pengiriman.</p>
               </div>
               <div class="pt-2">
                 <h6>
-                3. Qui qui reprehenderit ut est illo numquam voluptatem?</h6>
+                3. Bagaimana cara mengakses data website pendistribusian produk?</h6>
                 <p>
-                Enim inventore in consequuntur ipsam voluptatem consequatur beatae. Nostrum consequuntur voluptates et blanditiis.</p>
+                  Anda dapat mengakses data tersebut melalui situs web pendistribusian produk itu sendiri. Beberapa situs web bahkan menyediakan API (Application Programming Interface) yang memungkinkan pengguna untuk mengambil data secara langsung dari situs tersebut.</p>
               </div>
+              <div class="pt-2">
+                <h6>
+                4. Apakah data website pendistribusian produk dapat dipercaya?</h6>
+                <p>
+                  Data yang disediakan oleh situs web pendistribusian produk biasanya cukup dapat dipercaya, terutama jika situs tersebut memiliki kebijakan dan prosedur yang ketat untuk memastikan kualitas produk dan kepuasan pelanggan. Namun, ada juga kemungkinan adanya kesalahan atau penipuan, jadi selalu bijaksana untuk melakukan pengecekan dan penelitian terlebih dahulu sebelum melakukan transaksi.</p>
+              </div>
+              <div class="pt-2">
+                <h6>
+                5. Apakah data website pendistribusian produk dapat digunakan untuk kepentingan bisnis?</h6>
+                <p>
+                  Ya, data website pendistribusian produk dapat digunakan untuk berbagai kepentingan bisnis, seperti untuk melakukan analisis pasar, riset konsumen, dan pengembangan produk. Namun, pastikan untuk mematuhi hak cipta dan kebijakan privasi dari situs web yang menyediakan data tersebut.</p>
+              </div>
+              
             </div>
             </div>
             </div>
@@ -52,56 +65,57 @@
                 <div class="card">
                   <div class="card-body">
                   <h5 class="card-title">
-                  Deserunt ut unde corporis</h5>
+                  Mengenai Data Produk</h5>
                   <div class="accordion accordion-flush" id="faq-group-2">
                   <div class="accordion-item">
                   <h2 class="accordion-header">
                    <button class="accordion-button" data-bs-target="#faqsTwo-1" type="button" data-bs-toggle="collapse" aria-expanded="true">
-                   Cumque voluptatem recusandae blanditiis? </button>
+                    Apa itu data produk? </button>
                 </h2>
                   <div id="faqsTwo-1" class="accordion-collapse collapse show" data-bs-parent="#faq-group-2" style="">
                   <div class="accordion-body">
-                   Ut quasi odit odio totam accusamus vero eius. Nostrum asperiores voluptatem eos nulla ab dolores est asperiores iure. Quo est quis praesentium aut maiores. Corrupti sed aut expedita fugit vero dolorem. Nemo rerum sapiente. A quaerat dignissimos.</div>
+                    Data produk adalah informasi yang berkaitan dengan produk yang Anda tawarkan, seperti deskripsi, harga, gambar, dan atribut lainnya yang relevan dengan produk tersebut. Data produk membantu pelanggan memahami produk yang ditawarkan dan membuat keputusan pembelian yang tepat.</div>
               </div>
               </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                    <button class="accordion-button collapsed" data-bs-target="#faqsTwo-2" type="button" data-bs-toggle="collapse" aria-expanded="false">
-                   Provident beatae eveniet placeat est aperiam repellat adipisci? </button>
+                    Mengapa data produk penting bagi bisnis saya? </button>
                 </h2>
                   <div id="faqsTwo-2" class="accordion-collapse collapse" data-bs-parent="#faq-group-2" style="">
                   <div class="accordion-body">
-                   In minus quia impedit est quas deserunt deserunt et. Nulla non quo dolores minima fugiat aut saepe aut inventore. Qui nesciunt odio officia beatae iusto sed voluptatem possimus quas. Officia vitae sit voluptatem nostrum a.</div>
+                    Data produk adalah aset yang sangat penting bagi bisnis Anda karena memungkinkan pelanggan untuk melihat dan membandingkan produk Anda dengan produk lainnya. Dengan memberikan data produk yang lengkap dan akurat, Anda dapat meningkatkan kepercayaan pelanggan, meningkatkan konversi, dan membedakan produk Anda dari pesaing Anda.</div>
               </div>
               </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                    <button class="accordion-button collapsed" data-bs-target="#faqsTwo-3" type="button" data-bs-toggle="collapse" aria-expanded="false">
-                   Minus aliquam modi id reprehenderit nihil? </button>
+                    Apa yang harus saya lakukan jika ada data produk yang salah atau tidak akurat?
+  </button>
                 </h2>
                   <div id="faqsTwo-3" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
                   <div class="accordion-body">
-                   Voluptates magni amet enim perspiciatis atque excepturi itaque est. Sit beatae animi incidunt eum repellat sequi ea saepe inventore. Id et vel et et. Nesciunt itaque corrupti quia ducimus. Consequatur maiores voluptatum fuga quod ut non fuga.</div>
+                    Jika ada data produk yang salah atau tidak akurat, pastikan untuk segera memperbaikinya. Berikan cara bagi pelanggan untuk melaporkan kesalahan atau masalah dan pastikan untuk menanggapi laporan tersebut dengan cepat dan efektif.</div>
               </div>
               </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                    <button class="accordion-button collapsed" data-bs-target="#faqsTwo-4" type="button" data-bs-toggle="collapse" aria-expanded="false">
-                   Quaerat qui est iusto asperiores qui est reiciendis eos et? </button>
+                    Bagaimana saya dapat memastikan keakuratan data produk saya? </button>
                 </h2>
                   <div id="faqsTwo-4" class="accordion-collapse collapse" data-bs-parent="#faq-group-2" style="">
                   <div class="accordion-body">
-                   Numquam ut reiciendis aliquid. Quia veritatis quasi ipsam sed quo ut eligendi et non. Doloremque sed voluptatem at in voluptas aliquid dolorum.</div>
+                    Untuk memastikan keakuratan data produk Anda, pastikan untuk memeriksa dan memperbarui informasi secara teratur. Gunakan sistem manajemen konten yang baik untuk memudahkan penambahan atau pengeditan informasi produk. Pastikan juga bahwa semua informasi produk yang diberikan telah divalidasi dan diverifikasi sebelum diunggah ke situs web.</div>
               </div>
               </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                    <button class="accordion-button collapsed" data-bs-target="#faqsTwo-5" type="button" data-bs-toggle="collapse" aria-expanded="false">
-                   Laboriosam asperiores eum? </button>
+                    Apakah ada alat atau sistem otomatis yang dapat membantu saya mengelola data produk saya? </button>
                 </h2>
                   <div id="faqsTwo-5" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
                   <div class="accordion-body">
-                   Aut necessitatibus maxime quis dolor et. Nihil laboriosam molestiae qui molestias placeat corrupti non quo accusamus. Nemo qui quis harum enim sed. Aliquam molestias pariatur delectus voluptas quidem qui rerum id quisquam. Perspiciatis voluptatem voluptatem eos. Vel aut minus labore at rerum eos.</div>
+                    Ya, terdapat berbagai alat dan sistem otomatis seperti sistem manajemen konten (CMS), perangkat lunak manajemen produk (PIM), atau sistem manajemen konten digital (DCMS) yang dapat membantu Anda mengelola data produk dengan lebih efektif dan efisien.</div>
               </div>
               </div>
               </div>

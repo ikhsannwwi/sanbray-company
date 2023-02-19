@@ -10,6 +10,7 @@ use App\Models\jenis__produk;
 use App\Models\harga__jual;
 use App\Models\kreditdebit;
 use App\Models\role;
+use App\Models\stok_produk;
 use App\Models\tempat__distribusi;
 use App\Models\User;
 use Spatie\Activitylog\Models\Activity;
@@ -45,14 +46,16 @@ class feController extends Controller
     public function produk()
     {
         $pendistribusian = pendistribusian::orderBy('tanggal', 'DESC')->get();
-        $nama_produk = nama__produk::all();
+        $nama_produk = nama__produk::where('disable', '=',  null)->get();
+        $nama_produk_disable = nama__produk::where('disable', '=', '1')->get();
         
 
         $jenis_produk  = jenis__produk::with('nama_produk')->get();
+        // dd();
 
 
 
-        return view('fe.produk', compact('pendistribusian', 'nama_produk','jenis_produk'));
+        return view('fe.produk', compact('pendistribusian', 'nama_produk','jenis_produk','nama_produk_disable'));
     }
 
     public function tempat_distribusi()
@@ -84,6 +87,17 @@ class feController extends Controller
          ));
     }
 
+    public function stok_produk()
+    {
+        $jumlah_stok = nama__produk::where('disable', '=',  null)->with('stok_produk')->get();
+        // dd($jumlah_stok);
+        
+
+        $stok_produk= stok_produk::orderBy('created_at', 'DESC')->get();
+        return view('fe.data.stok-produk', compact('stok_produk',
+        'jumlah_stok',
+    ));
+    }
     public function user_profile()
     {
         return view('fe.pages.user-profile');

@@ -1266,3 +1266,8 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
+
+.disabled-- {
+   background-color: rgba(236, 240, 241, 0.5);
+   color: rgb(167, 167, 167)!important;
+}

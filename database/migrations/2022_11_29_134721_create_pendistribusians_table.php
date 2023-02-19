@@ -21,6 +21,7 @@ class CreatePendistribusiansTable extends Migration
             $table->integer('jumlah_barang');
             $table->foreignId('id_harga_jual');
             $table->integer('pending')->nullable();
+            $table->integer('pending_gudang')->nullable();
             $table->timestamps();
         });
     }

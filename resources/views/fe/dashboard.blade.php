@@ -593,6 +593,8 @@
 
               <div class="activity">
 
+              
+                    
                 <div class="activity-item d-flex">
                   <div class="activite-label">{{$act[0]->created_at->diffForHumans()}}</div>
                   <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
@@ -601,7 +603,8 @@
                   </div>
                 </div><!-- End activity item-->
                 
-
+                
+              
                 <div class="activity-item d-flex">
                   <div class="activite-label">{{$act[1]->created_at->diffForHumans()}}</div>
                   <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
@@ -609,23 +612,29 @@
                     {{$act[1]->description}}
                   </div>
                 </div><!-- End activity item-->
+                  
 
-                <div class="activity-item d-flex">
+                
+                  <div class="activity-item d-flex">
                   <div class="activite-label">{{$act[2]->created_at->diffForHumans()}}</div>
                   <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
                   <div class="activity-content">
                     {{$act[2]->description}}
                   </div>
                 </div><!-- End activity item-->
+                  
 
-                <div class="activity-item d-flex">
+                
+                  <div class="activity-item d-flex">
                   <div class="activite-label">{{$act[3]->created_at->diffForHumans()}}</div>
                   <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
                   <div class="activity-content">
                     {{$act[3]->description}}
                   </div>
                 </div><!-- End activity item-->
+                
 
+              
                 <div class="activity-item d-flex">
                   <div class="activite-label">{{$act[4]->created_at->diffForHumans()}}</div>
                   <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
@@ -633,7 +642,9 @@
                     {{$act[4]->description}}
                   </div>
                 </div><!-- End activity item-->
+                
 
+              
                 <div class="activity-item d-flex">
                   <div class="activite-label">{{$act[5]->created_at->diffForHumans()}}</div>
                   <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
@@ -641,6 +652,7 @@
                     {{$act[5]->description}}
                   </div>
                 </div><!-- End activity item-->
+                  
 
               </div>
 

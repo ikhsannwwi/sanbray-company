@@ -28,7 +28,7 @@
                     <div class="card-body">
                       <div class="row">
                         <div class="col-lg-12 ">
-                          <h5 class="card-title">Table with hoverable rows</h5>
+                          <h5 class="card-title">Data Pemasukan & Pengeluaran</h5>
                         </div>
                         
                       </div>
