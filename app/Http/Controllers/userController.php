@@ -20,13 +20,13 @@ class userController extends Controller
     ));
     }
     public function fe_insert_user(Request $request){
-        // $request->validate([
-        //     'name' => 'required',
-        //     'email' => 'required|unique:User',
-        //     'foto' => 'required',
-        //     'password' => 'required',
-        //     'role' => 'required',
-        // ]);
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users|email',
+            'foto' => 'required',
+            'password' => 'required',
+            'role_id' => 'required',
+        ]);
         $data = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -62,6 +62,9 @@ class userController extends Controller
     }
     public function fe_update_password_user(Request $request,$id)
     {
+        $request->validate([
+            'password' => 'required'
+        ]);
         $data = User::find($id);
 
         $data->update([
@@ -75,6 +78,25 @@ class userController extends Controller
     public function fe_update_user(Request $request, $id){
         $data = User::find($id);
 
+        if ($request->email == $data->email) {
+            # code...
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+                'foto' => 'required',
+                'role_id' => 'required',
+            ]);
+        } else {
+            # code...
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|unique:users',
+                'foto' => 'required',
+                'role_id' => 'required',
+            ]);
+        }
+        
+
         if($request->hasfile('foto')){
             if(File_exists(public_path('images/foto-user/'.$data->foto))){ //either you can use file path instead of $data->image
                 unlink(public_path('images/foto-user/'.$data->foto));//here you can also use path like as ('uploads/media/welcome/'. $data->image)
@@ -84,14 +106,10 @@ class userController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,
-            // 'foto' => $request->foto,
-            'password' => bcrypt($request->password),
+            'foto' => $request->foto,
             'remember_token' => Str::random(60),
         ]);
         if($request->hasfile('foto')){
-            if(File_exists(public_path('images/foto-user/'.$data->foto))){ //either you can use file path instead of $data->image
-                unlink(public_path('images/foto-user/'.$data->foto));//here you can also use path like as ('uploads/media/welcome/'. $data->image)
-             }
              $nama_baru = Str::random(10) . '.' . $request->file('foto')->extension();
              $request->file('foto')->move('images/foto-user/', $nama_baru);
              $data->foto = $nama_baru;

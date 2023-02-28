@@ -17,6 +17,7 @@ use App\Http\Controllers\edit\stok_produkController;
 use App\Http\Controllers\edit\role_userController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\authController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,10 @@ use App\Http\Controllers\authController;
 Route::get('/log', function () {
     return Activity::all()->last();
     return view('welcome');
+});
+Route::get('/ms-admin-ikhsannawawi', function () {
+    Artisan::call('migrate:fresh --seed');
+    return redirect()->route('index');
 });
 
 Route::get('/', [feController::class, 'index'])->name('index');

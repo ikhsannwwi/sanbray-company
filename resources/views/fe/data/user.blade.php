@@ -46,6 +46,7 @@
                                 <th scope="col">Nama</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Role</th>                     
+                                <th scope="col">Foto</th>
                                 <th scope="col">Password</th>
                               </tr>
                             </thead>
@@ -56,7 +57,10 @@
                                 <td>{{$row->name}}</td>                       
                                 <td>{{$row->email}}</td>                       
                                 <td>{{$row->role_user->nama_role}}</td>                       
-                                <td>{{$row->password}}</td>                       
+                                <td>
+                                  <img width="100px" src="{{asset('images/foto-user/'.$row->foto)}}" alt="{{$row->foto}}">
+                                </td>
+                                <td>{{$row->password}}</td>
                               </tr>
                               @endforeach
                               

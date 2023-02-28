@@ -44,7 +44,7 @@
                       </div>
 
                       <!-- Multi Columns Form -->
-                      <form action="/user/update-user/{{$data->id}}" method="POST" class="row g-3">
+                      <form action="/user/update-user/{{$data->id}}" method="POST" class="row g-3" enctype="multipart/form-data">
                           @csrf
                           <div class="col-md-12">
                             <label for="inputName5" class="form-label">Email</label>

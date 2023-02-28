@@ -32,7 +32,7 @@
                       <h5 class="card-title">Form User</h5>
         
                       <!-- Multi Columns Form -->
-                      <form action="/user/insert-user" method="POST" class="row g-3">
+                      <form action="/user/insert-user" method="POST" class="row g-3" enctype="multipart/form-data">
                         @csrf
                         <div class="col-md-12">
                           <label for="inputName5" class="form-label">Email</label>
