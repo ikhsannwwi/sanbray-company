@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{asset('sanbray-co/img/favicon.png')}}" rel="icon">
-  <link href="{{asset('sanbray-co/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <link href="{{asset('icon/snow-blue/snow.ico')}}" rel="icon">
+  <link href="{{asset('icon/snow-blue/snow.ico')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -49,8 +49,8 @@
 
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="{{asset('sanbray-co/img/logo.png')}}" alt="">
-                  <span class="d-none d-lg-block">NiceAdmin</span>
+                  <img src="{{asset('icon/snow-blue/snow.png')}}" alt="">
+                  <span class="d-none d-lg-block">Sanbray Company</span>
                 </a>
               </div><!-- End Logo -->
 
@@ -94,7 +94,7 @@
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Designed by <a href="http://ikhsannawawi.epizy.com/">Mochammad Ikhsan Nawawi</a>
               </div>
 
             </div>
